@@ -7,14 +7,17 @@ class Route {
     }
 
     public function routeRequest($url) {
-        if (array_key_exists($url, $this->routes)) {
-            list($controller, $method) = explode('@', $this->routes[$url]);
+        $urlParts = explode('?', $url);
+        $urlWithoutQueryString = $urlParts[0];
+        if (array_key_exists($urlWithoutQueryString , $this->routes)) {
+            list($controller, $method) = explode('@', $this->routes[$urlWithoutQueryString ]);
             $controllerInstance = new $controller();
-            $controllerInstance->processEventOnView();  
             $controllerInstance->$method();     
+
         }else{
             include("views/NotFoundPage.php");
         }
     }
+
 }
 ?>

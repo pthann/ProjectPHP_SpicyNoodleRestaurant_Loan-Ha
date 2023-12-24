@@ -1,18 +1,30 @@
 <?php
-class CrudHelper
-{
+class CrudHelper {
     private $db;
 
     public function __construct($connection) {
         $this->db = $connection;
     }
 
-    public function readAll($table, $condition = "1", $orderBy = "id ASC", $select = "*") {
-        $stmt = $this->db->prepare("SELECT $select FROM $table WHERE $condition ORDER BY $orderBy");
+    public function readAll($table, $condition = "1", $orderBy = "id ASC", $select = "*", $limit = "", $offset = "") {
+        if ($limit != "" && $offset != "") {
+            $stmt = $this->db->prepare("SELECT $select FROM $table WHERE $condition ORDER BY $orderBy LIMIT $limit OFFSET $offset");
+        }
+        else if ($limit != "") {
+            $stmt = $this->db->prepare("SELECT $select FROM $table WHERE $condition ORDER BY $orderBy LIMIT $limit");
+
+        } else {
+            $stmt = $this->db->prepare("SELECT $select FROM $table WHERE $condition ORDER BY $orderBy");
+        }
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function rowCount($table) {
+        $stmt = $this->db->prepare("SELECT id from $table");
+        $stmt->execute();
+        return $stmt->rowCount();
+    }
     public function readOne($table, $id, $select = "*") {
         $stmt = $this->db->prepare("SELECT $select FROM $table WHERE id=$id");
         $stmt->execute();

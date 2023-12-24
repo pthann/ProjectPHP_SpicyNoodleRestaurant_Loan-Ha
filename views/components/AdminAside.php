@@ -10,7 +10,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="" class="img-circle elevation-2" alt="Admin Avatar">
+                <img src="/views/images/uploads/users/<?=$this->getData("avatar")?>" class="img-circle elevation-2" alt="Admin Avatar">
             </div>
             <div class="info">
                 <a href="#" class="d-block">Admin</a>
@@ -30,63 +30,62 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link active ">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                            Management
-                            <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">5</span>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/admin/category" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Category</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                <?php if ($_SESSION["userRole"] == "ADMIN" || $_SESSION["userRole"] == "MANAGER") {  ?>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active ">
+                            <i class="nav-icon fa-brands fa-dropbox"></i>                            
+                            <p>
+                                Management
+                                <i class="fas fa-angle-left right"></i>
+                                <span class="badge badge-info right">5</span>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/category" class="nav-link">
+                                    <i class="fa-solid fa-list nav-icon"></i>                                        
+                                    <p>Category</p>
+                                    </a>
+                                </li>
+                            <li class="nav-item">
+                                <a href="/admin/product" class="nav-link">
+                                <i class="fa-brands fa-product-hunt nav-icon"></i>                                    
                                 <p>Product</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/layout/boxed.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Table</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>User</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/layout/fixed-sidebar-custom.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/layout/boxed.html" class="nav-link">
+                                <i class="fa-solid fa-tag nav-icon"></i>
+                                    <p>Table</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                                    <i class="fa-regular fa-user nav-icon"></i>
+                                    <p>User</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/layout/fixed-sidebar-custom.html" class="nav-link">
+                                <i class="fa-solid fa-envelope nav-icon"></i>                                    
                                 <p>Order</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php } ?>
+
                 <li class="nav-header">PROFILE</li>
                 <li class="nav-item">
                     <a href="pages/calendar.html" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
-                        <p>
-                            Profile
-                        </p>
+                        <i class="nav-icon fa-solid fa-user"></i>                        
+                        <p>Profile</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/admin/logout" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
-                        <p>
-                            Logout
-                        </p>
+                    <i class="nav-icon fa-solid fa-right-from-bracket"></i>
+                     <p>Logout</p>
                     </a>
                 </li>
 

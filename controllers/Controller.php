@@ -9,7 +9,6 @@ abstract class Controller {
     public function redirect(string $url) {
         header("Location: $url");   
     }
-
     public function processEventOnView() {
     }
 

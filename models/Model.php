@@ -16,8 +16,12 @@ abstract class Model {
         return $this->crudHelper-> readAll($this->table);
     }
 
+    public function rowCount() {
+        return $this->crudHelper-> rowCount($this->table);
+    }
+
     public function readOne($id) {
-        return $this -> crudHelper-> readOne($this->table, "id=$id");
+        return $this->crudHelper-> readOne($this->table, $id);
     }
 
     public function create($data) {

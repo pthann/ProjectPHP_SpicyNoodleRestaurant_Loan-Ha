@@ -8,12 +8,14 @@ class AuthController extends Controller {
     public function getLoginPage() {
         session_start();
         if (isset($_SESSION["userLogin"]) && $_SESSION["userRole"]) {
-            if ($_SESSION["userRole"] == "admin") {
-                $this->redirect("/admin");
-            } else {
+            if ($_SESSION["userRole"] == "CUSTOMER") {
                 $this->redirect("/home");
+            } else {
+                $this->redirect("/admin");
+
             }
         } else {
+            $this->processEventOnView();
             $this->renderView("LoginPage");
         }
     }
@@ -35,7 +37,7 @@ class AuthController extends Controller {
                 $this->setData("errorMessage", "Password has at least 8 characters, at least one capital letter, one number character and one special character.");
             } else {
                 if ($userModel->authenticateWithEmail($_POST["email"], $_POST["password"])) { // authentication email and password in database
-                    session_start();
+                    var_dump(session_start());
                     $_SESSION["userLogin"] =  $userModel->getIdFromEmail($_POST["email"]);
                     $_SESSION["userRole"] = $userModel->getRoleFromEmail($_POST["email"]);
                     $this->redirect("/admin");

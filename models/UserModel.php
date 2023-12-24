@@ -33,9 +33,16 @@ class UserModel extends Model {
 
     public function getRoleFromEmail($email) {
         $connection = new Connection();
-        $stmt = $connection->getConnection()->prepare("SELECT role  FROM $this->table WHERE email='$email'"); 
+        $stmt = $connection->getConnection()->prepare("SELECT `role` FROM $this->table WHERE email='$email'"); 
         $stmt->execute();  
-        return $stmt->fetch(PDO::FETCH_ASSOC)["rode"];
+        return $stmt->fetch(PDO::FETCH_ASSOC)["role"];
+    }
+
+    public function getAvatarFromId($id) {
+        $connection = new Connection();
+        $stmt = $connection->getConnection()->prepare("SELECT `avatar` FROM $this->table WHERE id='$id'"); 
+        $stmt->execute();  
+        return $stmt->fetch(PDO::FETCH_ASSOC)["avatar"];
     }
 
     public function isExistEmail($email) {
