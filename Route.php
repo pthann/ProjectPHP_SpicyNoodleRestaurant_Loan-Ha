@@ -11,7 +11,6 @@ class Route {
             list($controller, $method) = explode('@', $this->routes[$url]);
             $controllerInstance = new $controller();
             $controllerInstance->processEventOnView();  
-
             $controllerInstance->$method();     
         }else{
             include("views/NotFoundPage.php");

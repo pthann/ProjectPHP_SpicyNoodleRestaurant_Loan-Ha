@@ -13,14 +13,15 @@ class AuthController extends Controller {
             } else {
                 $this->redirect("/home");
             }
+        } else {
+            $this->renderView("LoginPage");
         }
-        $this->renderView("LoginPage");
     }
 
     public function logout() {
         session_start();
         unset($_SESSION["userLogin"]);
-        unset($_SESSION["userLRole"]);
+        unset($_SESSION["userRole"]);
         $this->redirect("/admin/login");
     }
 
@@ -28,17 +29,15 @@ class AuthController extends Controller {
         if (isset($_POST["submitLogin"])) {
             $userModel = new UserModel();
             $validation = new ValidationHelper();
-
-
-            if (!$validation->validateEmail($_POST["email"])) {
+            if (!$validation->validateEmail($_POST["email"])) { // if email is invalid
                 $this->setData("errorMessage", "Email not valid.");
-            } else if (!$validation->validatePassword($_POST["password"])) {
+            } else if (!$validation->validatePassword($_POST["password"])) { // if password invalid
                 $this->setData("errorMessage", "Password has at least 8 characters, at least one capital letter, one number character and one special character.");
             } else {
-                if ($userModel->authenticateWithEmail($_POST["email"], $_POST["password"])) {
+                if ($userModel->authenticateWithEmail($_POST["email"], $_POST["password"])) { // authentication email and password in database
                     session_start();
                     $_SESSION["userLogin"] =  $userModel->getIdFromEmail($_POST["email"]);
-                    $_SESSION["userRole"] = $userModel->isExistEmail($_POST["email"]);
+                    $_SESSION["userRole"] = $userModel->getRoleFromEmail($_POST["email"]);
                     $this->redirect("/admin");
                 } else {
                     $this->setData("errorMessage", "Email or Password not valid.");
