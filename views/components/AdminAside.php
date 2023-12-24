@@ -31,12 +31,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link active ">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             Management
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
+                            <span class="badge badge-info right">5</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -82,7 +82,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="/admin/logout" class="nav-link">
                         <i class="nav-icon far fa-calendar-alt"></i>
                         <p>
                             Logout

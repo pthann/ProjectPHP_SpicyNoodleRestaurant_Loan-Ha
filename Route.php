@@ -10,9 +10,11 @@ class Route {
         if (array_key_exists($url, $this->routes)) {
             list($controller, $method) = explode('@', $this->routes[$url]);
             $controllerInstance = new $controller();
-            $controllerInstance->$method();       
+            $controllerInstance->processEventOnView();  
+
+            $controllerInstance->$method();     
         }else{
-            include("views/404.php");
+            include("views/NotFoundPage.php");
         }
     }
 }
