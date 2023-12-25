@@ -16,7 +16,11 @@
             <button class="btn btn-outline-success">Search</button>
           </form>
         </div>
-
+        <?php
+          if(isset($_GET["search"])) {
+            echo "Result for ".$_GET["search"].":";
+          }
+        ?>
         <!--Content -->
         <div class="table-container mt-2">
           <table class="table" >
@@ -45,18 +49,18 @@
           </div>
         <!-- Message -->
         <?php
-        if ($this->getData("errorMessage") != "") {
+        if ($this->getData("errorMessage")!= "") {
         ?>
           <!-- Alert -->
-          <div class="alert alert-danger alert-dismissible fade show" role="alert"><?= $this->getData("errorMessage") ?></div>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert"><?=$this->getData("errorMessage") ?></div>
         <?php
         }
         ?>
         <?php
-        if ($this->getData("successMessage") != "") {
+        if ($this->getData("successMessage")!= "") {
         ?>
           <!-- Alert -->
-          <div class="alert alert-success alert-dismissible fade show" role="alert"><?= $this->getData("successMessage") ?></div>
+          <div class="alert alert-success alert-dismissible fade show" role="alert"><?=$this->getData("successMessage") ?></div>
         <?php
         }
         ?>

@@ -10,10 +10,6 @@ class CategoryModel extends Model {
         $this->table = "category";
     }
 
-    public function readPagination($limit, $offset) {
-        return $this->crudHelper->readAll($this->table, "1", "id ASC", "id, name", $limit, $offset);
-    }
-
     public function isExistName($name) {
         $connection = new Connection();
         $stmt = $connection->getConnection()->prepare("SELECT id FROM $this->table WHERE name='$name'"); 
