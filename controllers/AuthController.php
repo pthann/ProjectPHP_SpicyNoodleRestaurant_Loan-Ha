@@ -5,17 +5,21 @@ require_once("helpers/ValidationHelper.php");
 
 class AuthController extends Controller {
 
+    public function __construct() {
+        parent::__construct();
+    }
+
     public function getLoginPage() {
-        session_start();
-        if (isset($_SESSION["userLogin"]) && $_SESSION["userRole"]) {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        if (isset($_SESSION["userLogin"])) {
             if ($_SESSION["userRole"] == "CUSTOMER") {
                 $this->redirect("/home");
             } else {
                 $this->redirect("/admin");
-
             }
         } else {
-            $this->processEventOnView();
             $this->renderView("admin/LoginPage");
         }
     }
@@ -25,10 +29,11 @@ class AuthController extends Controller {
         unset($_SESSION["userLogin"]);
         unset($_SESSION["userAvatar"]);
         unset($_SESSION["userRole"]);
+        unset($_SESSION["userName"]);
         $this->redirect("/admin/login");
     }
 
-    public function processEventOnView() {
+    public function processEvent() {
         if (isset($_POST["submitLogin"])) {
             $userModel = new UserModel();
             $validation = new ValidationHelper();
@@ -41,7 +46,8 @@ class AuthController extends Controller {
                     session_start();
                     $_SESSION["userRole"] =  $userModel->getRoleFromEmail($_POST["email"]);
                     $_SESSION["userLogin"] =  $userModel->getIdFromEmail($_POST["email"]);
-                    $_SESSION["userAvatar"] = $userModel->getAvatarFromId($_SESSION["userLogin"]);
+                    $_SESSION["userAvatar"] = $userModel->getAvatarFromEmail($_POST["email"]);
+                    $_SESSION["userName"] = $userModel->getFullNameFromEmail($_POST["email"]);
                     $this->redirect("/admin");
                 } else {
                     $this->setData("errorMessage", "Email or Password not valid.");

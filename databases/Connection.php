@@ -6,10 +6,10 @@ class Connection {
 
     public function __construct() {
         try {
-            $this->connection = new PDO("mysql:host=".HOST_NAME.";dbname=".DB_NAME, USER_NAME, PASSWORD);
+            $this->connection = new PDO("mysql:host=" . HOST_NAME . ";dbname=" . DB_NAME, USER_NAME, PASSWORD);
             // set the PDO error mode to exception
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
     }
@@ -18,4 +18,3 @@ class Connection {
         return $this->connection;
     }
 }
-?>

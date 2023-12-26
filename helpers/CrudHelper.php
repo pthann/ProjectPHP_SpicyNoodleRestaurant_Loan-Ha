@@ -9,10 +9,8 @@ class CrudHelper {
     public function readAll($table, $condition = "1", $orderBy = "id ASC", $select = "*", $limit = "", $offset = "") {
         if ($limit != "" && $offset != "") {
             $stmt = $this->db->prepare("SELECT $select FROM $table WHERE $condition ORDER BY $orderBy LIMIT $limit OFFSET $offset");
-        }
-        else if ($limit != "") {
+        } else if ($limit != "") {
             $stmt = $this->db->prepare("SELECT $select FROM $table WHERE $condition ORDER BY $orderBy LIMIT $limit");
-
         } else {
             $stmt = $this->db->prepare("SELECT $select FROM $table WHERE $condition ORDER BY $orderBy");
         }
