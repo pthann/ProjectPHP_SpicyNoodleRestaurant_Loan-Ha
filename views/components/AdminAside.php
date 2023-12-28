@@ -41,17 +41,17 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                                <li class="nav-item">
+                            <li class="nav-item">
+                                <a href="/admin/category" class="nav-link">
+                                <i class="fa-solid fa-list nav-icon"></i>                                        
+                                <p>Category</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                     <a href="/admin/category" class="nav-link">
                                     <i class="fa-solid fa-list nav-icon"></i>                                        
-                                    <p>Category</p>
+                                    <p>Food</p>
                                     </a>
-                                </li>
-                            <li class="nav-item">
-                                <a href="/admin/product" class="nav-link">
-                                <i class="fa-brands fa-product-hunt nav-icon"></i>                                    
-                                <p>Product</p>
-                                </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages/layout/boxed.html" class="nav-link">
