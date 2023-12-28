@@ -2,6 +2,7 @@
 
 
 require_once("models/Model.php");
+require_once("models/Profile.php");
 
 class UserModel extends Model {
 
@@ -24,33 +25,22 @@ class UserModel extends Model {
         return password_verify($password, $stmt->fetch(PDO::FETCH_ASSOC)["password"]);
     }
 
-    public function getIdFromEmail($email) {
+    public function getProfileFromEmail($email) {
         $connection = new Connection();
-        $stmt = $connection->getConnection()->prepare("SELECT id  FROM $this->table WHERE email='$email'");
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC)["id"];
-    }
+        echo "SELECT `id`, `first_name`, `last_name`, `gender`, `telephone`, `role`, `avatar`, `point`  FROM $this->table WHERE email = '$email'";
 
-    public function getRoleFromEmail($email) {
-        $connection = new Connection();
-        $stmt = $connection->getConnection()->prepare("SELECT `role` FROM $this->table WHERE email='$email'");
+        $stmt = $connection->getConnection()->prepare("SELECT `id`, `first_name`, `last_name`, `gender`, `telephone`, `role`, `avatar`, `point`  FROM $this->table WHERE email='$email'");
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC)["role"];
-    }
-
-    public function getAvatarFromEmail($email) {
-        $connection = new Connection();
-        $stmt = $connection->getConnection()->prepare("SELECT `avatar` FROM $this->table WHERE email='$email'");
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC)["avatar"];
-    }
-
-    public function getFullNameFromEmail($email) {
-        $connection = new Connection();
-        $stmt = $connection->getConnection()->prepare("SELECT `last_name` ,`first_name` FROM $this->table WHERE email='$email'");
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result["first_name"] . " " . $result["last_name"];
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return Profile::builder()
+            ->id($row["id"])
+            ->firstName($row["first_name"])
+            ->lastName($row["last_name"])
+            ->gender($row["gender"])
+            ->telephone($row["telephone"])
+            ->role($row["role"])
+            ->avatar($row["avatar"])
+            ->point($row["point"]);
     }
 
     public function isExistEmail($email) {

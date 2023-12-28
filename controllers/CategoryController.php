@@ -14,7 +14,7 @@ class CategoryController extends Controller {
         }
         if (!isset($_SESSION['userLogin'])) {
             $this->redirect("/admin/login");
-        } else if ($_SESSION["userRole"] == "ADMIN" || $_SESSION["userRole"] == "MANAGER") {
+        } else if ($_SESSION["userLogin"]->getRole() == "ADMIN" || $_SESSION["userLogin"]->getRole() == "MANAGER") {
             $this->renderView("admin/CategoryPage");
         } else {
             include("views/NotFoundPage.php");

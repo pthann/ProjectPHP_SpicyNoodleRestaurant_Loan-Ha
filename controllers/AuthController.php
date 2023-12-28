@@ -14,7 +14,7 @@ class AuthController extends Controller {
             session_start();
         }
         if (isset($_SESSION["userLogin"])) {
-            if ($_SESSION["userRole"] == "CUSTOMER") {
+            if ($_SESSION["userLogin"]->getRole() == "CUSTOMER") {
                 $this->redirect("/home");
             } else {
                 $this->redirect("/admin");
@@ -27,9 +27,6 @@ class AuthController extends Controller {
     public function logout() {
         session_start();
         unset($_SESSION["userLogin"]);
-        unset($_SESSION["userAvatar"]);
-        unset($_SESSION["userRole"]);
-        unset($_SESSION["userName"]);
         $this->redirect("/admin/login");
     }
 
@@ -43,11 +40,10 @@ class AuthController extends Controller {
                 $this->setData("errorMessage", "Password has at least 8 characters, at least one capital letter, one number character and one special character.");
             } else {
                 if ($userModel->authenticateWithEmail($_POST["email"], $_POST["password"])) { // authentication email and password in database
-                    session_start();
-                    $_SESSION["userRole"] =  $userModel->getRoleFromEmail($_POST["email"]);
-                    $_SESSION["userLogin"] =  $userModel->getIdFromEmail($_POST["email"]);
-                    $_SESSION["userAvatar"] = $userModel->getAvatarFromEmail($_POST["email"]);
-                    $_SESSION["userName"] = $userModel->getFullNameFromEmail($_POST["email"]);
+                    if (!isset($_SESSION)) {
+                        session_start();
+                    }
+                    $_SESSION["userLogin"] =  $userModel->getProfileFromEmail($_POST["email"]);
                     $this->redirect("/admin");
                 } else {
                     $this->setData("errorMessage", "Email or Password not valid.");

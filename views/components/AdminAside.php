@@ -10,10 +10,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="/views/images/uploads/users/<?= $_SESSION["userAvatar"] ?>" class="img-circle elevation-2" alt="Admin Avatar">
+                <img src="/views/images/uploads/users/<?= $_SESSION["userLogin"]->getAvatar() ?>" class="img-circle elevation-2" alt="Admin Avatar">
             </div>
             <div class="info">
-                <a href="#" class="d-block"><?= $_SESSION["userName"] ?></a>
+                <a href="#" class="d-block"><?= $_SESSION["userLogin"]->getFullName() ?></a>
             </div>
         </div>
 
@@ -30,7 +30,7 @@
                         </p>
                     </a>
                 </li>
-                <?php if ($_SESSION["userRole"] == "ADMIN" || $_SESSION["userRole"] == "MANAGER") {  ?>
+                <?php if ($_SESSION["userLogin"]->getRole() == "ADMIN" || $_SESSION["userLogin"]->getRole() == "MANAGER") {  ?>
                     <li class="nav-item">
                         <a href="#" class="nav-link active ">
                             <i class="nav-icon fa-brands fa-dropbox"></i>
