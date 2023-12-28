@@ -12,9 +12,8 @@ thead {
 
 .table-container {
     max-height: 425px;
-    /* Set the max height for tbody to enable scrolling */
     overflow-y: auto;
-    /* Enable vertical scrolling */
+  
 }
 
 .table {

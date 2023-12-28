@@ -1,3 +1,6 @@
+<?php 
+include_once('views/components/Header.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +11,7 @@
 </head>
 <body>
     <form class="card w-25 m-auto p-3 mt-5" method="POST">
-        <h2 class="text-center">Login</h2>
+        <h2 class="text-center">Login Admin</h2>
         <div class="row mt-3">
             <div class="col-3">
                 <label for="">Email: </label>
@@ -31,3 +34,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
+
+<?php 
+include_once('./views/components/Foodter.php');
+?>

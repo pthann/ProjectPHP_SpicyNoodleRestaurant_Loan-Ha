@@ -12,7 +12,7 @@ class CategoryController extends Controller{
         } else if ($_SESSION["userRole"] == "ADMIN" || $_SESSION["userRole"] == "MANAGER") {
             $this->processData();
             $this->processEventOnView();
-            $this->renderView("CategoryPage");
+            $this->renderView("admin/CategoryPage");
         } else {
             include("views/NotFoundPage.php");
         }

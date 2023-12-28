@@ -16,8 +16,12 @@
             <button class="btn btn-outline-success">Search</button>
           </form>
         </div>
-
-        <!--Content -->
+        <?php
+          if(isset($_GET["search"])) {
+            echo "Result for ".$_GET["search"].":";
+          }
+        ?>
+       
         <div class="table-container mt-2">
           <table class="table" >
             <thead>
@@ -43,24 +47,22 @@
 
           </table>
           </div>
-        <!-- Message -->
+      
         <?php
-        if ($this->getData("errorMessage") != "") {
+        if ($this->getData("errorMessage")!= "") {
         ?>
-          <!-- Alert -->
-          <div class="alert alert-danger alert-dismissible fade show" role="alert"><?= $this->getData("errorMessage") ?></div>
-        <?php
-        }
-        ?>
-        <?php
-        if ($this->getData("successMessage") != "") {
-        ?>
-          <!-- Alert -->
-          <div class="alert alert-success alert-dismissible fade show" role="alert"><?= $this->getData("successMessage") ?></div>
+       
+          <div class="alert alert-danger alert-dismissible fade show" role="alert"><?=$this->getData("errorMessage") ?></div>
         <?php
         }
         ?>
-        <!-- Add Modal -->
+        <?php
+        if ($this->getData("successMessage")!= "") {
+        ?>
+          <div class="alert alert-success alert-dismissible fade show" role="alert"><?=$this->getData("successMessage") ?></div>
+        <?php
+        }
+        ?>
         <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
           <form action="" method="POST">
             <div class="modal-dialog">
@@ -81,7 +83,6 @@
             </div>
           </form>
         </div>
-        <!--  Delete Modal -->
         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
           <form action="" method="post">
             <div class="modal-dialog">
@@ -102,7 +103,8 @@
             </div>
           </form>
         </div>
-        <!-- Update Modal -->
+        
+
         <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
           <form action="" method="post">
             <div class="modal-dialog">

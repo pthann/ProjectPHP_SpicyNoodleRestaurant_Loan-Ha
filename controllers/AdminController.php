@@ -8,8 +8,7 @@ class AdminController extends Controller {
         } else {
             $userModel = new UserModel();
             $this->setData("title", "Dashboard");
-            $this->setData("avatar", $userModel->getAvatarFromId($_SESSION["userLogin"]));
-            $this->renderView("AdminHomePage");
+            $this->renderView("admin/AdminHomePage");
         }
        
     }

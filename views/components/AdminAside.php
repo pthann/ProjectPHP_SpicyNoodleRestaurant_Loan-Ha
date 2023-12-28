@@ -10,7 +10,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="/views/images/uploads/users/<?=$this->getData("avatar")?>" class="img-circle elevation-2" alt="Admin Avatar">
+                <img src="/views/images/uploads/users/<?=$_SESSION["userAvatar"]?>" class="img-circle elevation-2" alt="Admin Avatar">
             </div>
             <div class="info">
                 <a href="#" class="d-block">Admin</a>
@@ -41,17 +41,17 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                                <li class="nav-item">
+                            <li class="nav-item">
+                                <a href="/admin/category" class="nav-link">
+                                <i class="fa-solid fa-list nav-icon"></i>                                        
+                                <p>Category</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                     <a href="/admin/category" class="nav-link">
                                     <i class="fa-solid fa-list nav-icon"></i>                                        
-                                    <p>Category</p>
+                                    <p>Food</p>
                                     </a>
-                                </li>
-                            <li class="nav-item">
-                                <a href="/admin/product" class="nav-link">
-                                <i class="fa-brands fa-product-hunt nav-icon"></i>                                    
-                                <p>Product</p>
-                                </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages/layout/boxed.html" class="nav-link">

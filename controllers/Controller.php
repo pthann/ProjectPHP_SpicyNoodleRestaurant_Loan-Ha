@@ -3,7 +3,7 @@ abstract class Controller {
     private $data = [];
 
     public function renderView($content) {
-        include_once("views/" . $content . ".php");
+        include_once("views/pages/" . $content . ".php");
     }
 
     public function redirect(string $url) {

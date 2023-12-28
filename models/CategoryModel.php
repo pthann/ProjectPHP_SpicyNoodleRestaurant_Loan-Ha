@@ -1,6 +1,4 @@
 <?php
-
-
 require_once("models/Model.php");
 
 class CategoryModel extends Model {
@@ -8,10 +6,6 @@ class CategoryModel extends Model {
     public function __construct() {
         parent::__construct("category");
         $this->table = "category";
-    }
-
-    public function readPagination($limit, $offset) {
-        return $this->crudHelper->readAll($this->table, "1", "id ASC", "id, name", $limit, $offset);
     }
 
     public function isExistName($name) {

@@ -15,7 +15,7 @@ class Route {
             $controllerInstance->$method();     
 
         }else{
-            include("views/NotFoundPage.php");
+            include("views/pages/NotFoundPage.php");
         }
     }
 
