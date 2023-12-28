@@ -50,19 +50,21 @@
         </div>
         <!-- Message -->
         <?php
-        if ($this->getData("errorMessage") != "") {
+        if (isset($_SESSION["errorFlashMessage"])) {
         ?>
           <!-- Alert -->
-          <div class="alert alert-danger alert-dismissible fade show" role="alert"><?= $this->getData("errorMessage") ?></div>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert"><?= $_SESSION["errorFlashMessage"] ?></div>
         <?php
+          unset($_SESSION["errorFlashMessage"]);
         }
         ?>
         <?php
-        if ($this->getData("successMessage") != "") {
+        if (isset($_SESSION["successFlashMessage"])) {
         ?>
           <!-- Alert -->
-          <div class="alert alert-success alert-dismissible fade show" role="alert"><?= $this->getData("successMessage") ?></div>
+          <div class="alert alert-success alert-dismissible fade show" role="alert"><?= $_SESSION["successFlashMessage"] ?></div>
         <?php
+          unset($_SESSION["successFlashMessage"]);
         }
         ?>
         <!-- Add Modal -->

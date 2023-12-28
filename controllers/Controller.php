@@ -7,8 +7,8 @@ abstract class Controller {
     }
 
     public function renderView($content) {
-        $this->processData();
         $this->processEvent();
+        $this->processData();
         include_once("views/pages/" . $content . ".php");
     }
 

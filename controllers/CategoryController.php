@@ -24,14 +24,17 @@ class CategoryController extends Controller {
     public function processEvent() {
         if (isset($_POST["addCategory"])) {
             $this->addCategoryEvent();
+            unset($_POST["addCategory"]);
         }
 
         if (isset($_POST["deleteCategory"])) {
             $this->deleteCategoryEvent();
+            unset($_POST["deleteCategory"]);
         }
 
         if (isset($_POST["updateCategory"])) {
             $this->editCategoryEvent();
+            unset($_POST["updateCategory"]);
         }
 
         if (isset($_GET["search"])) {
@@ -49,12 +52,12 @@ class CategoryController extends Controller {
     public function addCategoryEvent() {
         $categoryModel = new CategoryModel();
         if ($categoryModel->isExistName($_POST["name"])) {
-            $this->setData("errorMessage", "Category name already exist.");
+            $_SESSION["errorFlashMessage"] = "Category name already exist.";
         } else if ($_POST["name"] == "" || $_POST["name"] == " ") {
-            $this->setData("errorMessage", "Category name is blank.");
+            $_SESSION["errorFlashMessage"] = "Category name is blank.";
         } else {
             $categoryModel->create(["name" => $_POST["name"]]);
-            $this->setData("successMessage", "Add successfully!");
+            $_SESSION["successFlashMessage"] = "Add successfully!";
         }
     }
 
@@ -63,19 +66,19 @@ class CategoryController extends Controller {
         $category = $categoryModel->readOne($_POST["id"]);
         $categoryName = $category["name"];
         if ($_POST["name"] == "" || $_POST["name"] == " ") {
-            $this->setData("errorMessage", "Category name is blank.");
+            $_SESSION["errorFlashMessage"] = "Category name is blank.";
         } else if ($_POST["name"] != $categoryName && $categoryModel->isExistName($_POST["name"])) {
-            $this->setData("errorMessage", "Category name already exist.");
+            $_SESSION["errorFlashMessage"] = "Category name already exist.";
         } else {
             $categoryModel->update(["name" => $_POST["name"]], $_POST["id"]);
-            $this->setData("successMessage", "Update successfully!");
+            $_SESSION["successFlashMessage"] = "Update successfully!";
         }
     }
 
     public function deleteCategoryEvent() {
         $categoryModel = new CategoryModel();
         $categoryModel->delete($_POST["id"]);
-        $this->setData("successMessage", "Delete successfully!");
+        $_SESSION["successFlashMessage"] = "Delete successfully!";
     }
 
     public function searchCategoryEvent($key) {
