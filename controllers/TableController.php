@@ -2,7 +2,7 @@
 require_once("models/UserModel.php");
 require_once("models/TablesModel.php");
 
-class TablesController extends Controller {
+class TableController extends Controller {
     public function getView() {
         session_start();
         if (!isset($_SESSION['userLogin'])) {

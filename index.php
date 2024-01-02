@@ -3,8 +3,9 @@ require_once("controllers/Controller.php");
 require_once("controllers/AdminController.php");
 require_once("controllers/AuthController.php");
 require_once("controllers/CategoryController.php");
-require_once("controllers/FoodController.php"); 
-require_once("controllers/TablesController.php");  
+
+
+
 require_once("Route.php");
 
 $router = new Route();

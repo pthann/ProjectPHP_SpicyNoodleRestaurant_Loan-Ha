@@ -1,8 +1,10 @@
 <?php
 class AdminController extends Controller {
- 
+
     public function getView() {
-        session_start();
+        if (!isset($_SESSION)) {
+            session_start();
+        }
         if (!isset($_SESSION['userLogin'])) {
             $this->redirect("/admin/login");
         } else {
@@ -10,6 +12,5 @@ class AdminController extends Controller {
             $this->setData("title", "Dashboard");
             $this->renderView("admin/AdminHomePage");
         }
-       
     }
 }

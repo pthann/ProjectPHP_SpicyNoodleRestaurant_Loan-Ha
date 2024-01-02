@@ -2,6 +2,7 @@
 <html lang="en">
 <?php include_once("views/components/AdminHead.php") ?>
 <link rel="stylesheet" href="/views/styles/Category.css">
+
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
     <?php include_once("views/components/AdminNavBar.php") ?>
@@ -12,18 +13,18 @@
         <div class="d-flex justify-content-between">
           <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">Add Category</button>
           <form class="d-flex" method="GET">
-            <input class="form-control me-2" type="search" name="search" placeholder="Search by id, name" id= "searchCategory" aria-label="Search">
+            <input class="form-control me-2" type="search" name="search" placeholder="Search by id, name" id="searchCategory" aria-label="Search">
             <button class="btn btn-outline-success">Search</button>
           </form>
         </div>
         <?php
-          if(isset($_GET["search"])) {
-            echo "Result for ".$_GET["search"].":";
-          }
+        if (isset($_GET["search"])) {
+          echo "<h3 class=\"mt-3 mb-3 text-bold\">Result for " . $_GET["search"] . ":</h3>";
+        }
         ?>
        
         <div class="table-container mt-2">
-          <table class="table" >
+          <table class="table">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -32,8 +33,8 @@
               </tr>
             </thead>
 
-            <tbody  >
-              <?php foreach ( $this->getData("categories") as $key => $value) { ?>
+            <tbody>
+              <?php foreach ($this->getData("categories") as $key => $value) { ?>
                 <tr>
                   <th scope="row"><?= $value["id"] ?></th>
                   <td><?= $value["name"] ?></td>
@@ -46,21 +47,24 @@
             </tbody>
 
           </table>
-          </div>
-      
+        </div>
+        <!-- Message -->
         <?php
-        if ($this->getData("errorMessage")!= "") {
+        if (isset($_SESSION["errorFlashMessage"])) {
         ?>
-       
-          <div class="alert alert-danger alert-dismissible fade show" role="alert"><?=$this->getData("errorMessage") ?></div>
+          <!-- Alert -->
+          <div class="alert alert-danger alert-dismissible fade show" role="alert"><?= $_SESSION["errorFlashMessage"] ?></div>
         <?php
+          unset($_SESSION["errorFlashMessage"]);
         }
         ?>
         <?php
-        if ($this->getData("successMessage")!= "") {
+        if (isset($_SESSION["successFlashMessage"])) {
         ?>
-          <div class="alert alert-success alert-dismissible fade show" role="alert"><?=$this->getData("successMessage") ?></div>
+          <!-- Alert -->
+          <div class="alert alert-success alert-dismissible fade show" role="alert"><?= $_SESSION["successFlashMessage"] ?></div>
         <?php
+          unset($_SESSION["successFlashMessage"]);
         }
         ?>
         <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
