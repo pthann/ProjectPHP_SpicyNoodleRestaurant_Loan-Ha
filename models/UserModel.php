@@ -6,8 +6,8 @@ require_once("models/Model.php");
 class UserModel extends Model {
 
     public function __construct() {
-        parent::__construct("user");
-        $this->table = "user";
+        parent::__construct("users");
+        $this->table = "users";
     }
 
     public function authenticateWithEmail($email, $password) {

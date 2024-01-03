@@ -1,5 +1,5 @@
 <?php
-require_once("configs/DatabaseConfig.php");
+require_once("./configs/DatabaseConfig.php");
 
 class Connection {
     private $connection;

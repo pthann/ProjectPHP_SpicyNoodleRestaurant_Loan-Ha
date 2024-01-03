@@ -39,7 +39,11 @@ class FoodModel extends Model {
         $stmt->bindParam(':image_link', $data['image_link']);
         $stmt->bindParam(':price', $data['price']);
         $stmt->bindParam(':description', $data['description']);
-        return $stmt->execute();
+        $result = $stmt->execute();
+        if ($result) {
+            header("Location: /admin/food");
+        }
+        return $result;
     }
 
     public function readAll() {
@@ -65,14 +69,22 @@ class FoodModel extends Model {
         $stmt->bindParam(':price', $data['price']);
         $stmt->bindParam(':description', $data['description']);
         $stmt->bindParam(':id', $id);
-        return $stmt->execute();
+        $result = $stmt->execute();
+        if ($result) {
+            header("Location: /admin/food");
+        }
+        return $result;
     }
 
     public function delete($id) {
         $connection = new Connection();
         $stmt = $connection->getConnection()->prepare("DELETE FROM $this->table WHERE id = :id");
         $stmt->bindParam(':id', $id);
-        return $stmt->execute();
+        $result = $stmt->execute();
+        if ($result) {
+            header("Location: /admin/food");
+        }
+        return $result;
     }
 }
 ?>

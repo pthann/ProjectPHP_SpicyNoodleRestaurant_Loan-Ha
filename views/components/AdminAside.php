@@ -48,25 +48,25 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                    <a href="/admin/category" class="nav-link">
+                                    <a href="/admin/food" class="nav-link">
                                     <i class="fa-solid fa-list nav-icon"></i>                                        
                                     <p>Food</p>
                                     </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/layout/boxed.html" class="nav-link">
+                                <a href="/admin/table" class="nav-link">
                                 <i class="fa-solid fa-tag nav-icon"></i>
                                     <p>Table</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                                <a href="/admin/user" class="nav-link">
                                     <i class="fa-regular fa-user nav-icon"></i>
                                     <p>User</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/layout/fixed-sidebar-custom.html" class="nav-link">
+                                <a href="/admin/order" class="nav-link">
                                 <i class="fa-solid fa-envelope nav-icon"></i>                                    
                                 <p>Order</p>
                                 </a>

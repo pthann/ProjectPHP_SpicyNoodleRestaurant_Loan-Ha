@@ -5,13 +5,15 @@ require_once("controllers/AuthController.php");
 require_once("controllers/CategoryController.php");
 require_once("controllers/FoodController.php"); 
 require_once("controllers/TablesController.php");  
+require_once("controllers/UsersController.php");  
 require_once("Route.php");
 
 $router = new Route();
 $router->addRoute("/admin", "AdminController@getView");
 $router->addRoute("/admin/category", "CategoryController@getView");
 $router->addRoute("/admin/food", "FoodController@getView"); 
-$router->addRoute("/admin/tables", "TablesController@getView"); 
+$router->addRoute("/admin/table", "TablesController@getView"); 
+$router->addRoute("/admin/user", "UsersController@getView"); 
 $router->addRoute("/admin/login", "AuthController@getLoginPage");
 $router->addRoute("/admin/logout", "AuthController@logout");
 

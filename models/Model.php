@@ -1,6 +1,5 @@
 <?php
 require_once ("helpers/CrudHelper.php");
-require_once ("helpers/TablesCrudHelper.php");
 require_once ("databases/Connection.php");
 
 abstract class Model {

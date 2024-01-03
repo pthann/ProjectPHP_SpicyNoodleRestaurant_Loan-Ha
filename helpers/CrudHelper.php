@@ -1,4 +1,5 @@
 <?php
+
 class CrudHelper {
     private $db;
 
@@ -6,18 +7,16 @@ class CrudHelper {
         $this->db = $connection;
     }
 
-    public function readAll($table, $condition = "1", $orderBy = "id ASC", $select = "*", $limit = "", $offset = "") {
 
-    // public function readAll($table, $condition = "1", $orderBy = "id ASC", $select = "*", $limit = "", $offset = "") {
+    public function readAll($table, $condition = "1", $orderBy = "id ASC", $select = "*", $limit = "", $offset = "") {
         if ($limit != "" && $offset != "") {
             $stmt = $this->db->prepare("SELECT $select FROM $table WHERE $condition ORDER BY $orderBy LIMIT $limit OFFSET $offset");
-        }
-        else if ($limit != "") {
+        } else if ($limit != "") {
             $stmt = $this->db->prepare("SELECT $select FROM $table WHERE $condition ORDER BY $orderBy LIMIT $limit");
-
         } else {
             $stmt = $this->db->prepare("SELECT $select FROM $table WHERE $condition ORDER BY $orderBy");
         }
+
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -27,8 +26,10 @@ class CrudHelper {
         $stmt->execute();
         return $stmt->rowCount();
     }
+
     public function readOne($table, $id, $select = "*") {
-        $stmt = $this->db->prepare("SELECT $select FROM $table WHERE id=$id");
+        $stmt = $this->db->prepare("SELECT $select FROM $table WHERE id=:id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
@@ -37,6 +38,7 @@ class CrudHelper {
         $columns = implode(",", array_keys($data));
         $values = ":" . implode(", :", array_keys($data));
         $stmt = $this->db->prepare("INSERT INTO $table ($columns) VALUES ($values)");
+
         foreach ($data as $key => $value) {
             $stmt->bindValue(":$key", $value);
         }

@@ -1,4 +1,5 @@
 <?php
+
 require_once("models/UserModel.php");
 require_once("models/TablesModel.php");
 
@@ -10,7 +11,7 @@ class TablesController extends Controller {
         } else if ($_SESSION["userRole"] == "ADMIN" || $_SESSION["userRole"] == "MANAGER") {
             $this->processData();
             $this->processEventOnView();
-            $this->renderView("admin/TablesPage");
+            $this->renderView("admin/TablesPage"); 
         } else {
             include("views/NotFoundPage.php");
         }
@@ -22,16 +23,16 @@ class TablesController extends Controller {
         }
 
         if (isset($_POST["deleteTable"])) {
-           $this->deleteTableEvent();
+            $this->deleteTableEvent();
         }
 
         if (isset($_POST["updateTable"])) {
-           $this->editTableEvent();
+            $this->editTableEvent();
         }
 
         if (isset($_GET["search"])) {
             $this->searchTableEvent($_GET["search"]);
-         }
+        }
     }
 
     public function processData() {
@@ -39,45 +40,63 @@ class TablesController extends Controller {
         $tablesModel = new TablesModel();
         $this->setData("title", "Tables");
         $this->setData("avatar", $userModel->getAvatarFromId($_SESSION["userLogin"]));
-        $this->setData("tables", $tablesModel->readAll());
+        $this->setData("tables", $tablesModel->readAllTables());
     }
 
     public function addTableEvent() {
         $tablesModel = new TablesModel();
-        if ($tablesModel->isExistName($_POST["nameTable"])) {
-            $this->setData("errorMessage", "Table name already exists.");
-        } else if ($_POST["nameTable"] == "" || $_POST["nameTable"] == " ") {
+
+        $name = $_POST["name"];
+        // Validation
+        if (empty($name) || trim($name) == "") {
             $this->setData("errorMessage", "Table name is blank.");
         } else {
-            $tablesModel->create(["nameTable" => $_POST["nameTable"]]);
-            $this->setData("successMessage", "Add successfully!");
+            if ($tablesModel->isExistName($name)) {
+                $this->setData("errorMessage", "Table name already exists.");
+            } else {
+                $tableData = [
+                    "name" => $name
+                ];
+
+                $tablesModel->createTable($tableData);
+                $this->setData("successMessage", "Table added successfully!");
+            }
         }
     }
 
     public function editTableEvent() {
         $tablesModel = new TablesModel();
-        $table = $tablesModel->readOne($_POST["table_id"]);
-        $tableName = $table["nameTable"];
 
-        if ($_POST["nameTable"] == "" || $_POST["nameTable"] == " ") {
+        $id = $_POST["id"];
+        $name = $_POST["name"];
+        // Validation
+        if (empty($name) || trim($name) == "") {
             $this->setData("errorMessage", "Table name is blank.");
-        } else if ($_POST["nameTable"] != $tableName && $tablesModel->isExistName($_POST["nameTable"])) {
-            $this->setData("errorMessage", "Table name already exists.");
         } else {
-            $tablesModel->update(["nameTable" => $_POST["nameTable"]], $_POST["table_id"]);
-            $this->setData("successMessage", "Update successfully!");
-        }        
+            $table = $tablesModel->readOneTable($id);
+            $currentName = $table["name"];
+
+            if ($name !== $currentName && $tablesModel->isExistName($name)) {
+                $this->setData("errorMessage", "Table name already exists.");
+            } else {
+                $updatedTableData = [
+                    "name" => $name
+                ];
+
+                $tablesModel->updateTable($updatedTableData, $id);
+                $this->setData("successMessage", "Table updated successfully!");
+            }
+        }
     }
 
     public function deleteTableEvent() {
         $tablesModel = new TablesModel();
-        $tablesModel->delete($_POST["table_id"]);
-        $this->setData("successMessage", "Delete successfully!");
+        $tablesModel->deleteTable($_POST["id"]);
+        $this->setData("successMessage", "Table deleted successfully!");
     }
 
     public function searchTableEvent($key) {
         $tablesModel = new TablesModel();
-        $this->setData("tables", $tablesModel->searchBy($key));
+        $this->setData("tables", $tablesModel->searchByTableKey($key));
     }
 }
-

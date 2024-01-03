@@ -12,20 +12,35 @@
         <div><img class="logoHeader" src="../views/images/logos/logo.png" alt="Logo"></div>
         <div>
           <nav class="groupAHeader">
-            <a class="aOfHeader" href="">Home</a>
-            <a class="aOfHeader"href="">Menu</a>
-            <a class="aOfHeader"href="">Search</a>
-            <a class="aOfHeader" href="">Cart</a>
-            <a class="aOfHeader" href="">Admin</a>
+            <a class="aOfHeader" onclick="home()"href="">Home</a>
+            <a class="aOfHeader" onclick="menu()"href="">Menu</a>
+            <a class="aOfHeader"onclick="search()"href="">Search</a>
+            <a class="aOfHeader" onclick="cart()"href="">Cart</a>
+            <a class="aOfHeader" onclick="logout()" href="#">Admin</a>
             <a class="aOfHeader" onclick="registration()" href="#">User</a>
           </nav>
         </div>
       </div>
-      <!-- <script>
+      <script>
           function registration(){
-            window.location="http://localhost:3009/registration";
+            window.location="http://localhost:3000/user/registration";
           }
-      </script> -->
+          function logout(){
+            window.location="http://localhost:3000/admin/logout";
+          }
+          function logout(){
+            window.location="http://localhost:3000/admin/logout";
+          }
+          function logout(){
+            window.location="http://localhost:3000/admin/logout";
+          }
+          function logout(){
+            window.location="http://localhost:3000/admin/logout";
+          }
+          function logout(){
+            window.location="http://localhost:3000/admin/logout";
+          }
+      </script>
    </body>
 
 

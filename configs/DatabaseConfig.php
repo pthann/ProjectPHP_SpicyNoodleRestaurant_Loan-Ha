@@ -4,3 +4,4 @@
     define("PASSWORD","");
     define("DB_NAME","spicy_noodle");
 ?>
+

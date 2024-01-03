@@ -45,10 +45,10 @@ class FoodController extends Controller {
 
     public function addFoodEvent() {
         $foodModel = new FoodModel();
-
         $name = $_POST["name"];
         $imageLink = $_POST["image_link"]; 
         $price = $_POST["price"]; 
+        $description = $_POST["description"]; 
         // Validation
         if (empty($name) || trim($name) == "") {
             $this->setData("errorMessage", "Food name is blank.");
@@ -59,7 +59,8 @@ class FoodController extends Controller {
                 $foodData = [
                     "name" => $name,
                     "image_link" => $imageLink,
-                    "price" => $price
+                    "price" => $price,
+                    "description" => $description
                 ];
 
                 $foodModel->create($foodData);
@@ -75,6 +76,7 @@ class FoodController extends Controller {
         $name = $_POST["name"];
         $imageLink = $_POST["image_link"]; 
         $price = $_POST["price"]; 
+        $description = $_POST["description"]; 
         // Validation
         if (empty($name) || trim($name) == "") {
             $this->setData("errorMessage", "Food name is blank.");
@@ -88,7 +90,8 @@ class FoodController extends Controller {
                 $updatedFoodData = [
                     "name" => $name,
                     "image_link" => $imageLink,
-                    "price" => $price
+                    "price" => $price,
+                    "description" => $description
                 ];
 
                 $foodModel->update($updatedFoodData, $id);

@@ -1,5 +1,4 @@
 <?php
-
 require_once("models/UserModel.php");
 require_once("models/CategoryModel.php");
 
