@@ -60,7 +60,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                                <a href="/admin/user" class="nav-link">
                                     <i class="fa-regular fa-user nav-icon"></i>
                                     <p>User</p>
                                 </a>

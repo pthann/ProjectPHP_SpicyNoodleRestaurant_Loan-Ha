@@ -2,6 +2,7 @@
 
 require_once("models/UserModel.php");
 require_once("models/CategoryModel.php");
+require_once("helpers/CheckLoginHelper.php");
 
 class CategoryController extends Controller {
 
@@ -9,16 +10,8 @@ class CategoryController extends Controller {
         parent::__construct();
     }
     public function getView() {
-        if (!isset($_SESSION)) {
-            session_start();
-        }
-        if (!isset($_SESSION['userLogin'])) {
-            $this->redirect("/admin/login");
-        } else if ($_SESSION["userRole"] == "ADMIN" || $_SESSION["userRole"] == "MANAGER") {
-            $this->renderView("admin/CategoryPage");
-        } else {
-            include("views/NotFoundPage.php");
-        }
+        $checkLoginHelper = new CheckLoginHelper();
+       $checkLoginHelper-> adminLoginHelper($this,"CategoryPage");
     }
 
     public function processEvent() {
