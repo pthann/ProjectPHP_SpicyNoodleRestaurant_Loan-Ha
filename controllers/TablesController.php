@@ -47,7 +47,7 @@ class TablesController extends Controller {
         $tablesModel = new TablesModel();
 
         $name = $_POST["name"];
-        // Validation
+   
         if (empty($name) || trim($name) == "") {
             $this->setData("errorMessage", "Table name is blank.");
         } else {
@@ -69,7 +69,7 @@ class TablesController extends Controller {
 
         $id = $_POST["id"];
         $name = $_POST["name"];
-        // Validation
+       
         if (empty($name) || trim($name) == "") {
             $this->setData("errorMessage", "Table name is blank.");
         } else {

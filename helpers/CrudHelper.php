@@ -6,8 +6,6 @@ class CrudHelper {
     public function __construct($connection) {
         $this->db = $connection;
     }
-
-
     public function readAll($table, $condition = "1", $orderBy = "id ASC", $select = "*", $limit = "", $offset = "") {
         if ($limit != "" && $offset != "") {
             $stmt = $this->db->prepare("SELECT $select FROM $table WHERE $condition ORDER BY $orderBy LIMIT $limit OFFSET $offset");
@@ -16,7 +14,6 @@ class CrudHelper {
         } else {
             $stmt = $this->db->prepare("SELECT $select FROM $table WHERE $condition ORDER BY $orderBy");
         }
-
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

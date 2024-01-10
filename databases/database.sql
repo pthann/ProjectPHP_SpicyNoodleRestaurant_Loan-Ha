@@ -24,7 +24,7 @@ INSERT INTO `customer` (`id`, `name`, `password`) VALUES
 
 -- Tạo bảng food
 CREATE TABLE `food` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL Primary key AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `image_link` varchar(255) DEFAULT NULL,
   `price` decimal(10,3) DEFAULT NULL,

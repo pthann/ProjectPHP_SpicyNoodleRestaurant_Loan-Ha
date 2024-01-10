@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include_once("views/components/AdminHead.php") ?>
-<link rel="stylesheet" href="/views/styles/Category.css">
+<link rel="stylesheet" href="/views/styles/admin/Category.css">
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
     <?php include_once("views/components/AdminNavBar.php") ?>
@@ -26,7 +26,7 @@
           <table class="table" >
             <thead>
               <tr>
-                <th scope="col">#</th>
+                <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Action</th>
               </tr>

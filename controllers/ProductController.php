@@ -1,9 +1,9 @@
 <?php
 
 require_once("models/UserModel.php");
-require_once("models/FoodModel.php");
+require_once("models/ProductModel.php");
 
-class FoodController extends Controller {
+class ProductController extends Controller {
     public function getView() {
         session_start();
         if (!isset($_SESSION['userLogin'])) {
@@ -11,7 +11,7 @@ class FoodController extends Controller {
         } else if ($_SESSION["userRole"] == "ADMIN" || $_SESSION["userRole"] == "MANAGER") {
             $this->processData();
             $this->processEventOnView();
-            $this->renderView("admin/FoodPage"); 
+            $this->renderView("admin/ProductPage"); 
         } else {
             include("views/NotFoundPage.php");
         }
@@ -37,19 +37,20 @@ class FoodController extends Controller {
 
     public function processData() {
         $userModel = new UserModel();
-        $foodModel = new FoodModel();
-        $this->setData("title", "Food");
+        $foodModel = new ProductModel();
+        $this->setData("title", "Product");
         $this->setData("avatar", $userModel->getAvatarFromId($_SESSION["userLogin"]));
         $this->setData("foods", $foodModel->readAll());
     }
 
     public function addFoodEvent() {
-        $foodModel = new FoodModel();
+        $foodModel = new ProductModel();
         $name = $_POST["name"];
         $imageLink = $_POST["image_link"]; 
         $price = $_POST["price"]; 
         $description = $_POST["description"]; 
-        // Validation
+       
+        
         if (empty($name) || trim($name) == "") {
             $this->setData("errorMessage", "Food name is blank.");
         } else {
@@ -70,14 +71,14 @@ class FoodController extends Controller {
     }
 
     public function editFoodEvent() {
-        $foodModel = new FoodModel();
+        $foodModel = new ProductModel();
 
         $id = $_POST["id"];
         $name = $_POST["name"];
         $imageLink = $_POST["image_link"]; 
         $price = $_POST["price"]; 
         $description = $_POST["description"]; 
-        // Validation
+      
         if (empty($name) || trim($name) == "") {
             $this->setData("errorMessage", "Food name is blank.");
         } else {
@@ -101,13 +102,13 @@ class FoodController extends Controller {
     }
 
     public function deleteFoodEvent() {
-        $foodModel = new FoodModel();
+        $foodModel = new ProductModel();
         $foodModel->delete($_POST["id"]);
         $this->setData("successMessage", "Food deleted successfully!");
     }
 
     public function searchFoodEvent($key) {
-        $foodModel = new FoodModel();
+        $foodModel = new ProductModel();
         $this->setData("foods", $foodModel->searchBy($key));
     }
 }

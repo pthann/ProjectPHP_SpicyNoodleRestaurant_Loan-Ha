@@ -1,7 +1,7 @@
 <?php
 require_once("models/Model.php");
 
-class FoodModel extends Model {
+class ProductModel extends Model {
 
     public function __construct() {
         parent::__construct("food");
@@ -41,7 +41,7 @@ class FoodModel extends Model {
         $stmt->bindParam(':description', $data['description']);
         $result = $stmt->execute();
         if ($result) {
-            header("Location: /admin/food");
+            header("Location: /admin/product");
         }
         return $result;
     }
@@ -71,7 +71,7 @@ class FoodModel extends Model {
         $stmt->bindParam(':id', $id);
         $result = $stmt->execute();
         if ($result) {
-            header("Location: /admin/food");
+            header("Location: /admin/product");
         }
         return $result;
     }
@@ -82,7 +82,7 @@ class FoodModel extends Model {
         $stmt->bindParam(':id', $id);
         $result = $stmt->execute();
         if ($result) {
-            header("Location: /admin/food");
+            header("Location: /admin/product");
         }
         return $result;
     }

@@ -41,6 +41,7 @@ class CategoryController extends Controller{
         $this->setData("title", "Category");
         $this->setData("avatar", $userModel->getAvatarFromId($_SESSION["userLogin"]));
         $this->setData("categories", $categoryModel -> readAll());
+        
     }
 
     public function addCategoryEvent() {
@@ -55,6 +56,7 @@ class CategoryController extends Controller{
             $this->setData("successMessage", "Add successfully!");
 
         }
+        
     }
 
     public function editCategoryEvent() {

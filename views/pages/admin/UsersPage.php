@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include_once("views/components/AdminHead.php") ?>
-<link rel="stylesheet" href="/views/styles/Users.css">
+<link rel="stylesheet" href="/views/styles/admin/Users.css">
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
     <?php include_once("views/components/AdminNavBar.php") ?>
@@ -27,23 +27,34 @@
             <thead>
               <tr>
                 <th scope="col">ID</th>
+                <th scope="col">FullName</th>
                 <th scope="col">Email</th>
-                <th scope="col">Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Avatar</th>
                 <th scope="col">Role</th>
-                <th scope="col">Block</th>
+                <th scope="col">Telephone</th>
+                <th scope="col">Point</th>
+                <th scope="col">Enable</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
               <?php foreach ($this->getData("users") as $key => $value) { ?>
-                <tr>
+                <tr>  
                   <th scope="row"><?= $value["id"] ?></th>
-                  <td><?= $value["email"] ?></td>
                   <td><?= $value["name"] ?></td>
+                  <td><?= $value["email"] ?></td>
+                  <td><?= $value["gender"] ?></td>
+                  <td>
+                      <img width="50px" src="<?= $value["avatar"] ?>" alt="User Avatar">
+                  </td>
+
                   <td><?= $value["role"] ?></td>
+                  <td><?= $value["telephone"] ?></td>
+                  <td><?= $value["point"] ?></td>
                   <td><?= $value["block"] ? 'Blocked' : 'Active' ?></td>
                   <td>
-                    <button onclick='showValueUpdateUser("<?= $value["id"] ?>","<?= $value["email"] ?>","<?= $value["name"] ?>","<?= $value["role"] ?>","<?= $value["block"] ?>")' class="btn btn-info" data-bs-toggle="modal" data-bs-target="#updateUserModal">Update</button>
+                    <button onclick='showValueUpdateUser("<?= $value["id"] ?>","<?= $value["email"] ?>","<?= $value["name"] ?>","<?= $value["role"] ?>","<?= $value["telephone"] ?>","<?= $value["block"] ?>")' class="btn btn-info" data-bs-toggle="modal" data-bs-target="#updateUserModal">Update</button>
                     
                     <button onclick='showMessageDeleteUser("<?= $value["id"] ?>","<?= $value["name"] ?>")' class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUserModal">Delete</button>
                   </td>
@@ -101,11 +112,19 @@
                     <input type="text" class="form-control" name="name" id="userNameUpdate" required>
                   </div>
                   <div class="mb-3">
+                      <label for="userAvatarUpdate" class="form-label">Avatar_link:</label>
+                      <input type="text" class="form-control" name="avatar" id="userAvatarUpdate" required>
+                  </div>
+                  <div class="mb-3">
+                      <label for="userTelephoneUpdate" class="form-label">Telephone:</label>
+                      <input type="text" class="form-control" name="telephone" id="userTelephoneUpdate" required>
+                  </div>
+
+                  <div class="mb-3">
                     <label for="userRoleUpdate" class="form-label">Role:</label>
                     <select class="form-select" name="role" id="userRoleUpdate" required>
                       <option value="ADMIN">Admin</option>
-                      <option value="USER">Customer</option>
-                      
+                      <option value="USER">Customer</option> 
                     </select>
                   </div>
                   <div class="mb-3 form-check">

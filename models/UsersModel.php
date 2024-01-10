@@ -15,8 +15,20 @@ class UsersModel extends Model {
         $stmt->execute();
         return $stmt->rowCount() != 0;
     }
-
- 
+   
+    public function getAvatarFromId($id) {
+        $connection = new Connection();
+        $stmt = $connection->getConnection()->prepare("SELECT `avatar` FROM $this->table WHERE id='$id'"); 
+        $stmt->execute();  
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if ($result && isset($result["avatar"])) {
+            return $result["avatar"];
+        } else {
+            return null; 
+        }
+    }
+    
     public function readAllUsers() {
         $connection = new Connection();
         $stmt = $connection->getConnection()->prepare("SELECT * FROM $this->table");
@@ -34,19 +46,22 @@ class UsersModel extends Model {
 
     public function updateUser($data, $id) {
         $connection = new Connection();
-        $stmt = $connection->getConnection()->prepare("UPDATE $this->table SET email = :email, name= :name, role= :role, block= :block WHERE id = :id");
+        $stmt = $connection->getConnection()->prepare("UPDATE $this->table SET email = :email, name = :name, role = :role, block = :block, avatar = :avatar, telephone = :telephone WHERE id = :id");
+    
         $stmt->bindParam(':email', $data['email']);
         $stmt->bindParam(':name', $data['name']);
+        $stmt->bindParam(':avatar', $data['avatar']);
         $stmt->bindParam(':role', $data['role']);
         $stmt->bindParam(':block', $data['block']);
+        $stmt->bindParam(':telephone', $data['telephone']);
         $stmt->bindParam(':id', $id);
         $result = $stmt->execute();
         if ($result) {
             header("Location: /admin/user");
         }
-        return $result;
-        
+        return $result;  
     }
+    
 
     public function deleteUser($id) {
         $connection = new Connection();

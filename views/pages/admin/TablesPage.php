@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include_once("views/components/AdminHead.php") ?>
-<link rel="stylesheet" href="/views/styles/Tables.css">
+<link rel="stylesheet" href="/views/styles/admin/Tables.css">
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
     <?php include_once("views/components/AdminNavBar.php") ?>

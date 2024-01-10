@@ -1,9 +1,78 @@
-<!-- <link rel="stylesheet" href="../styles/Footer.css"> -->
-<div class="end-wed">
+<style>
+    .end-wed {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  margin-top: 60px;
+  
+}
+
+.embrace {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-end {
+  object-fit: cover;
+  max-width: 150px;
+}
+
+.content-end {
+  display: flex;
+  gap: 500px;
+}
+
+.nav {
+  list-style: none;
+  padding-left: 100px;
+}
+
+.nav-item {
+    width:200px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.support-end {
+  display: flex;
+  flex-direction: column;
+  padding-right: 500px;
+  width:300px;
+}
+
+hr {
+  border: 1px solid #fff;
+}
+
+.introductions {
+  width: 70%;
+  color: white;
+  align-items: center;
+  margin: 0 auto; /* Center the text */
+}
+
+.support {
+  color: white;
+  width:300px;
+}
+
+</style>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<div class="end-wed container-fluid">
     <hr />
     <div class="embrace">
         <div class="img-end">
-            <img class="logo-end" src="../views/images/logos/logo.png" alt="Logo" />
+            <img class="logo-end" src="/views/images/logos/logo.png" alt="Logo" />
         </div>
         <div class="content-end">
             <ul class="nav">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include_once("views/components/AdminHead.php") ?>
-<link rel="stylesheet" href="/views/styles/Food.css">
+<link rel="stylesheet" href="/views/styles/admin/Product.css">
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
     <?php include_once("views/components/AdminNavBar.php") ?>
@@ -10,7 +10,7 @@
       <?php include_once("views/components/AdminHeader.php") ?>
       <section class="content container">
         <div class="d-flex justify-content-between">
-          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addFoodModal">Add Food</button>
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addFoodModal">Add Product</button>
           <form class="d-flex" method="GET">
             <input class="form-control me-2" type="search" name="search" placeholder="Search by ID, Name" id="searchFood" aria-label="Search">
             <button class="btn btn-outline-success">Search</button>
@@ -26,7 +26,7 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
+                <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Image</th>
                 <th scope="col">Price</th>
@@ -67,12 +67,12 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="addFoodModalLabel">Add Food</h1>
+                  <h1 class="modal-title fs-5" id="addFoodModalLabel">Add Product</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <div class="mb-3">
-                    <label for="foodName" class="form-label">Food Name:</label>
+                    <label for="foodName" class="form-label">Product Name:</label>
                     <input type="text" class="form-control" name="name" id="foodName" required>
                   </div>
                   <div class="mb-3">
@@ -103,11 +103,11 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="deleteFoodModalLabel">Delete Food</h1>
+                  <h1 class="modal-title fs-5" id="deleteFoodModalLabel">Delete Product</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <p>Are you sure to delete the food with name <span id="foodNameDelete"></span>?</p>
+                  <p>Are you sure to delete the product with name <span id="foodNameDelete"></span>?</p>
                   <input type="hidden" name="id" id="foodIdDelete">
                 </div>
                 <div class="modal-footer">
@@ -125,12 +125,12 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="updateFoodModalLabel">Update Food</h1>
+                  <h1 class="modal-title fs-5" id="updateFoodModalLabel">Update Product</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <div class="mb-3">
-                    <label for="foodNameUpdate" class="form-label">Food Name:</label>
+                    <label for="foodNameUpdate" class="form-label">Food Product:</label>
                     <input type="text" class="form-control" name="name" id="foodNameUpdate" required>
                   </div>
                   <div class="mb-3">
@@ -160,6 +160,6 @@
     <?php include_once("views/components/AdminFooter.php") ?>
   </div>
   <?php include_once("views/components/AdminScript.php") ?>
-  <script src="/views/scripts/Food.js"></script>
+  <script src="/views/scripts/Product.js"></script>
 </body>
 </html>

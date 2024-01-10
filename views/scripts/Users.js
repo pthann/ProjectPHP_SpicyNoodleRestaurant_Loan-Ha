@@ -1,10 +1,11 @@
 setTimeout(function () {
     $('.alert').alert('close');
 }, 1500);
-function showValueUpdateUser(id, email, name, role, block) {
+function showValueUpdateUser(id, email, name,avatar,role, block) {
     document.getElementById("userEmailUpdate").value = email;
     document.getElementById("userNameUpdate").value = name;
     document.getElementById("userRoleUpdate").value = role;
+    document.getElementById("userAvatarUpdate").value = avatar;
     document.getElementById("userBlockUpdate").checked = block === '0'; 
     document.getElementById("userIdUpdate").value = id;
 }
