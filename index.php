@@ -8,6 +8,7 @@ require_once("controllers/TablesController.php");
 require_once("controllers/UsersController.php");  
 require_once("controllers/HomepageController.php"); 
 require_once("controllers/RegisterController.php"); 
+require_once("controllers/DetailFoodController.php"); 
 require_once("Route.php");
 
 $router = new Route();
@@ -21,7 +22,7 @@ $router->addRoute("/login", "AuthController@getLoginPage");
 $router->addRoute("/admin/logout", "AuthController@logout");
 $router->addRoute("/", "RegisterController@getview");
 $router->addRoute("/register", "RegisterController@getview");
-$router->addRoute("/detail", "");
+$router->addRoute("/detail", "DetailFoodController@getview");
 
 $requestedUrl = $_SERVER['REQUEST_URI'];
 

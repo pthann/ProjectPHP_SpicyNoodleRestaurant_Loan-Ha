@@ -1,5 +1,5 @@
 <?php
-require_once("models/UserModel.php");
+require_once("models/UsersModel.php");
 require_once("models/CategoryModel.php");
 
 class CategoryController extends Controller{
@@ -36,7 +36,7 @@ class CategoryController extends Controller{
     }
 
     public function processData(){
-        $userModel = new UserModel();
+        $userModel = new UsersModel();
         $categoryModel = new CategoryModel();
         $this->setData("title", "Category");
         $this->setData("avatar", $userModel->getAvatarFromId($_SESSION["userLogin"]));

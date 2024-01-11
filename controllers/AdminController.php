@@ -6,7 +6,7 @@ class AdminController extends Controller {
         if (!isset($_SESSION['userLogin'])) {
             $this->redirect("/login");
         } else {
-            $userModel = new UserModel();
+            $userModel = new UsersModel();
             $this->setData("title", "Dashboard");
             $this->renderView("admin/AdminHomePage");
         }

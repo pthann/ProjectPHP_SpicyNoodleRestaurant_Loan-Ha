@@ -1,6 +1,5 @@
 <?php
-
-require_once("models/UserModel.php");
+require_once("models/UsersModel.php");
 require_once("models/ProductModel.php");
 
 class ProductController extends Controller {
@@ -36,7 +35,7 @@ class ProductController extends Controller {
     }
 
     public function processData() {
-        $userModel = new UserModel();
+        $userModel = new UsersModel();
         $foodModel = new ProductModel();
         $this->setData("title", "Product");
         $this->setData("avatar", $userModel->getAvatarFromId($_SESSION["userLogin"]));
@@ -72,20 +71,25 @@ class ProductController extends Controller {
 
     public function editFoodEvent() {
         $foodModel = new ProductModel();
-
+    
         $id = $_POST["id"];
         $name = $_POST["name"];
-        $imageLink = $_POST["image_link"]; 
-        $price = $_POST["price"]; 
-        $description = $_POST["description"]; 
-      
+        $imageLink = $_POST["image_link"];
+        $price = $_POST["price"];
+        $description = $_POST["description"];
+    
         if (empty($name) || trim($name) == "") {
             $this->setData("errorMessage", "Food name is blank.");
         } else {
             $food = $foodModel->readOne($id);
-            $currentName = $food["name"];
-
-            if ($name !== $currentName && $foodModel->isExistName($name)) {
+    
+            if (is_array($food) && isset($food["name"])) {
+                $currentName = $food["name"];
+            } else {
+                $currentName = null;
+            }
+    
+            if ($currentName !== null && $name !== $currentName && $foodModel->isExistName($name)) {
                 $this->setData("errorMessage", "Food name already exists.");
             } else {
                 $updatedFoodData = [
@@ -94,12 +98,13 @@ class ProductController extends Controller {
                     "price" => $price,
                     "description" => $description
                 ];
-
+    
                 $foodModel->update($updatedFoodData, $id);
                 $this->setData("successMessage", "Food updated successfully!");
             }
         }
     }
+    
 
     public function deleteFoodEvent() {
         $foodModel = new ProductModel();

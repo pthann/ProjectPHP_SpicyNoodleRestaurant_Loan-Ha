@@ -1,5 +1,5 @@
 <?php
-require_once("models/UserModel.php");
+require_once("models/UsersModel.php");
 require_once("models/ProductModel.php");
 
 class HomepageController extends Controller {
@@ -16,7 +16,7 @@ class HomepageController extends Controller {
     }
 
     public function processData() {
-        $userModel = new UserModel();
+        $userModel = new UsersModel();
         $foodModel = new ProductModel();
         $this->setData("title", "Food");
         $this->setData("avatar", $userModel->getAvatarFromId($_SESSION["userLogin"]));

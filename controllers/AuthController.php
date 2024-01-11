@@ -1,5 +1,5 @@
 <?php
-require_once("models/UserModel.php");
+require_once("models/UsersModel.php");
 require_once("helpers/ValidationHelper.php");
 
 class AuthController extends Controller {
@@ -29,7 +29,7 @@ class AuthController extends Controller {
 
     public function processEventOnView() {
         if (isset($_POST["submitLogin"])) {
-            $userModel = new UserModel();
+            $userModel = new UsersModel();
             $validation = new ValidationHelper();
             if (!$validation->validateEmail($_POST["email"])) {
                 $this->setData("errorMessage", "Email not valid.");

@@ -81,5 +81,24 @@ class UsersModel extends Model {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function authenticateWithEmail($email, $password) {
+        $connection = new Connection();
+        $stmt = $connection->getConnection()->prepare("SELECT email, password  FROM $this->table WHERE email='$email'"); 
+        $stmt->execute();  
+        return password_verify($password, $stmt->fetch(PDO::FETCH_ASSOC)["password"]); 
+    }
+    public function getIdFromEmail($email) {
+        $connection = new Connection();
+        $stmt = $connection->getConnection()->prepare("SELECT id  FROM $this->table WHERE email='$email'"); 
+        $stmt->execute();  
+        return $stmt->fetch(PDO::FETCH_ASSOC)["id"];
+    }
+
+    public function getRoleFromEmail($email) {
+        $connection = new Connection();
+        $stmt = $connection->getConnection()->prepare("SELECT `role` FROM $this->table WHERE email='$email'"); 
+        $stmt->execute();  
+        return $stmt->fetch(PDO::FETCH_ASSOC)["role"];
+    }
 }
 ?>

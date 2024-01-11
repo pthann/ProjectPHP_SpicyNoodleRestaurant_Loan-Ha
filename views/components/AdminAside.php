@@ -11,7 +11,7 @@
 
 
             <div class="image">
-                <img src="/views/images/uploads/users/<?=$_SESSION["userAvatar"]?>" class="img-circle elevation-2" alt="Avatar">
+                <img src="<?=$_SESSION["userAvatar"]?>" class="img-circle elevation-2" alt="Avatar">
             </div>
             <div class="info">
                 <a href="#" class="d-block">Admin</a>

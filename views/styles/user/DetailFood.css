@@ -1,0 +1,33 @@
+.row{
+    height:400px;
+  }   
+.nameFood {
+    margin-top: 50px;
+    margin-left:340px;
+}
+.imageFood {
+    margin-left: 100px;
+    margin-top: 140px; 
+    object-fit: cover;
+    width:180px;
+    height:130px;
+}
+.descriptionFood {
+    font-size: 25px;
+    margin-left: 70px;
+    margin-top:50px;
+}
+.addFood{
+    color:white;
+    text-decoration: none;
+    
+}
+button{
+    
+    width:150px;
+}
+
+.addCart{
+    margin-left: 1120px;
+    margin-top:0px;
+}

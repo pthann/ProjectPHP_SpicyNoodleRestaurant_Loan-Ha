@@ -26,6 +26,7 @@
     list-style: none;
     display: flex;
     justify-content: space-around;
+    
   }
   .imageFoodOfHome {
     text-align: center;
@@ -44,4 +45,9 @@
     padding: 10px;
     box-sizing: border-box;
     text-align: center;
+    text-decoration: none;
+    color: black;
+}
+.imageFoodOfHome:hover{
+  color:red;
 }

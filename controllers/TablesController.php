@@ -1,6 +1,6 @@
 <?php
 
-require_once("models/UserModel.php");
+require_once("models/UsersModel.php");
 require_once("models/TablesModel.php");
 
 class TablesController extends Controller {
@@ -36,7 +36,7 @@ class TablesController extends Controller {
     }
 
     public function processData() {
-        $userModel = new UserModel();
+        $userModel = new UsersModel();
         $tablesModel = new TablesModel();
         $this->setData("title", "Tables");
         $this->setData("avatar", $userModel->getAvatarFromId($_SESSION["userLogin"]));

@@ -23,22 +23,19 @@ include_once('views/components/Header.php');
         <h2>Food and drinks</h2>
    
     <div class="foodHomepage">
-    <div class="row">
-        <?php foreach ($this->getData("foods") as $key => $value) : ?>
-            <a href="/detail?id=<?= $value['id'] ?>" class="col-md-2 imageFoodOfHome">
-            <div >
-                <img src="<?= $value['image_link'] ?>" alt="<?= $value['name'] ?>" class="img-fluid">
-                <br>
-                <b><?= $value['name'] ?></b>
+            <div class="row">
+                <?php foreach ($this->getData("foods") as $key => $value) : ?>
+                <a href="/detail?id=<?= $value['id'] ?>" class="col-md-2 imageFoodOfHome">
+                        <div>
+                            <img src="<?= $value['image_link'] ?>" alt="<?= $value['name'] ?>" class="img-fluid">
+                            <br>
+                            <b><?= $value['name'] ?></b>
+                        </div>
+                </a>
+                <?php if (($key + 1) % 6 === 0) : ?>
             </div>
-            </a>
-            <?php if (($key + 1) % 6 === 0) : ?>
-                </div><div class="row">
-            <?php endif; ?>
-        <?php endforeach; ?>
+            <div class="row"> <?php endif; ?> <?php endforeach; ?></div>
     </div>
-</div>
-
 </body>
 <?php 
 include_once('views/components/Footer.php'); 
