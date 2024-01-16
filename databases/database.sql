@@ -1,35 +1,30 @@
-
-
--- Tạo bảng admin
-CREATE TABLE `admin` (
+CREATE TABLE `category` (
   `id` int(11) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `name` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Đổ dữ liệu cho bảng admin
-INSERT INTO `admin` (`id`, `email`, `password`) VALUES
-(1, 'admin@gmail.com', '$2y$10$yQpl7bMHwEB3J8SRcoe0teUKWKSN1IXpRFx1X4cT2Dsr6wxkuLSqm');
 
--- Tạo bảng customer
+INSERT INTO `category` (`id`, `name`) VALUES
+(24, 'Drink'),
+(25, 'Food'),
 CREATE TABLE `customer` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Đổ dữ liệu cho bảng customer
 INSERT INTO `customer` (`id`, `name`, `password`) VALUES
 (1, 'loan@gmail.com', 'Loan@123');
 
--- Tạo bảng food
 CREATE TABLE `food` (
-  `id` int(11) NOT NULL Primary key AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `image_link` varchar(255) DEFAULT NULL,
   `price` decimal(10,3) DEFAULT NULL,
   `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
 
 INSERT INTO `food` (`id`, `name`, `image_link`, `price`, `description`) VALUES
 (1, 'Spicy Fried Fish Ball Noodles', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS-hQB9upIEmgIQVG46UVQ9LlWPjtjFCjgHSvChTsGXX-qwUOBk', 70.000, 'A unique dish combining soft and smooth spaghetti with the crunch and spiciness of fried fish patties. Main ingredients include spaghetti, fried fish patties, garlic, onions, chili, fish sauce, and spices.'),
@@ -43,25 +38,14 @@ INSERT INTO `food` (`id`, `name`, `image_link`, `price`, `description`) VALUES
 (9, 'Stir-fried Corn', 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQaQjQZBnVLLcc9ZUHxtJB_rY9matK7t6AVzktWKWXM4e_8kOxw', 60.000, 'Perfect combination of fresh corn and vegetables stir-fried with delicious spices. Features fresh corn, onions, carrots, and bell peppers for a delicious and nutritious dish.'),
 (10, 'Mixed Rice Paper Salad', 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRTlimzU9m_tHMtPCkMBi-x-BYmRNjlTUTEYvVq5kGOV7hmfEMM', 60.000, 'Harmonious combination of thin, smooth rice paper layers and fresh ingredients such as green vegetables, chicken, or shrimp, with unique spices. Offers a perfect blend of flavor and nutrients.'),
 (11, 'Green Mango Salad', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTtzgL62oO_ygfq7Nr-PRfLSAvTN5jb02i27Gfw4ISRnGssIqGx', 60.000, 'Wonderful combination of crunchy green mango, refreshing green vegetables, and unique spices. Features ripe but crunchy green mangoes, raw vegetables, fish mint, basil, and coriander for a fresh and nutritious salad.'),
-(12, 'Lemon Tea', 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRssoe0P7vP4JkZEIbuW2zc9Y5DeISipGoLpQZAd2Q9HXzc5xbLg', 30.000, 'Perfect combination of fresh herbal tea and fresh lemon juice. Popular and suitable for all weather, offering a harmonious balance between tea flavor and a slightly sour taste of lemon.'),
+(12, 'Lemon Tea', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu-w75wsehWtUwL7uEJvaIs3LQ9tbdqO9JXA&usqp=CAU', 30.000, 'Perfect combination of fresh herbal tea and fresh lemon juice. Popular and suitable for all weather, offering a harmonious balance between tea flavor and a slightly sour taste of lemon.'),
 (13, 'Sweet Potato Fries', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3y79J096JMs66c7GKh_SOCJrghX68Q5PAV_LhppspV2imsrnX', 50.000, 'Fun and healthy version of traditional potato chips using sweet potatoes. Features crispy fried sweet potato sticks with a naturally sweet flavor balanced with a mild salty taste from spices like salt and pepper.'),
 (14, 'Fried Fermented Pork Roll', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSpt0SODFRny3SAOWvFlpBR5YXbvEn-b6LfnQm4iR8MtTKy1Bk4', 50.000, 'Popular street food made from Nem chua, a spring roll made from marinated and fermented pork, deep-fried for a delicious crispy crust outside while retaining the softness inside.'),
 (15, 'Fried Sausages', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu4rHHrSsEOLbzHrtTLL_EmrvJOZDNKn5Atwu1X1KAMYft23Xq', 50.000, 'Popular street food made from ground meat, often pork, mixed with salt, spices, and breadcrumbs, stuffed into casings and fried until golden and crispy. Enhances flavor and texture.'),
 (16, 'Peach Tea', 'https://cuongquat.com/files/assets/tr_o.jpg', 30.000, 'Perfect combination of tea and fresh peach flavor, suitable for all weather. Features black tea, green tea, or oolong tea as the base with added fresh peaches or peach juice for a natural and sweet peach flavor.');
 
-CREATE TABLE `category` (
-  `id` int(4) NOT NULL,
-  `name` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Đổ dữ liệu cho bảng category
-INSERT INTO `category` (`id`, `name`) VALUES
-(20, 'Pham thi h'),
-(21, 'ha'),
-(22, '1');
--- Thêm các mục dữ liệu khác cho bảng category
 
--- Tạo bảng `order`
 CREATE TABLE `order` (
   `id` int(11) NOT NULL,
   `datetime` datetime NOT NULL,
@@ -69,14 +53,16 @@ CREATE TABLE `order` (
   `tag_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Tạo bảng `order_detail`
+
+
 CREATE TABLE `order_detail` (
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `order_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Tạo bảng `product`
+
+
 CREATE TABLE `product` (
   `id` int(4) NOT NULL,
   `name` text NOT NULL,
@@ -88,32 +74,12 @@ CREATE TABLE `product` (
   `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Tạo bảng `tag`
-CREATE TABLE `tag` (
-  `id` int(11) NOT NULL,
-  `name` text NOT NULL,
-  `status` text NOT NULL DEFAULT 'Empty'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Đổ dữ liệu cho bảng `tag`
-INSERT INTO `tag` (`id`, `name`, `status`) VALUES
-(2, '1', 'Empty'),
-(3, '2', 'Empty'),
-(4, '3', 'Empty');
-
--- Tạo bảng `tag_detail`
-CREATE TABLE `tag_detail` (
-  `tag_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `status` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- Tạo bảng `tables`
 CREATE TABLE `tables` (
-  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 INSERT INTO `tables` (`id`, `name`) VALUES
 (1, 'Bàn 1'),
@@ -140,9 +106,37 @@ INSERT INTO `tables` (`id`, `name`) VALUES
 (22, 'Bàn 22'),
 (23, 'Bàn 23'),
 (24, 'Bàn 24');
--- Tạo bảng `user`
+
+ALTER TABLE `order`
+ADD COLUMN `table_id` INT,
+ADD CONSTRAINT `fk_order_tables`
+FOREIGN KEY (`table_id`) REFERENCES `tables`(`id`);
+
+
+CREATE TABLE `tag` (
+  `id` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `status` text NOT NULL DEFAULT 'Empty'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `tag` (`id`, `name`, `status`) VALUES
+(2, '1', 'Empty'),
+(3, '2', 'Empty'),
+(4, '3', 'Empty');
+
+
+
+CREATE TABLE `tag_detail` (
+  `tag_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `status` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `id` int(11) NOT NULL,
   `email` text NOT NULL,
   `name` text NOT NULL,
   `password` text NOT NULL,
@@ -152,13 +146,20 @@ CREATE TABLE `users` (
   `telephone` text NOT NULL,
   `point` bigint(20) NOT NULL,
   `block` tinyint(1) NOT NULL DEFAULT 0
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `users` (`id`, `email`, `name`, `password`, `avatar`, `role`, `telephone`, `point`,`block`) VALUES
-(1, 'admin@gmail.com', 'Admin', '$2y$10$yQpl7bMHwEB3J8SRcoe0teUKWKSN1IXpRFx1X4cT2Dsr6wxkuLSqm', 'admin.png', 'ADMIN', '', 0, DEFAULT);
 
--- Tạo các ràng buộc kết nối
+
+INSERT INTO `users` (`id`, `email`, `name`, `password`, `gender`, `avatar`, `role`, `telephone`, `point`, `block`) VALUES
+(45, 'admin@gmail.com', 'Tố Loan', '$2y$10$tvTtope3bwfZLezmGzW3qONDnL1WVcRCN85WdebhX8u.GbFYla4Ru', '', 'https://img.meta.com.vn/Data/image/2022/03/14/anh-anime-chibi-8.jpg', 'ADMIN', '0878138854', 0, 0),
+(48, 'loan.huynh25@student.passerellesnumeriques.org', 'Tố Loan', '$2y$10$M8J.ujUCZvt.sYfqJ0Orv.7c12D4onJYRShqf9CyS0aXdtkgb9w1u', '', 'https://inkythuatso.com/uploads/thumbnails/800/2023/03/1-hinh-anh-ngay-moi-hanh-phuc-sieu-cute-inkythuatso-09-13-35-50.jpg', 'USER', '0332042241', 0, 0);
+
+
 ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+
+ALTER TABLE `food`
   ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `order`
@@ -169,22 +170,48 @@ ALTER TABLE `order_detail`
   ADD PRIMARY KEY (`product_id`,`order_id`),
   ADD KEY `order_id` (`order_id`);
 
+
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
   ADD KEY `category_id` (`category_id`);
+
+
+ALTER TABLE `tables`
+  ADD PRIMARY KEY (`id`);
+
 
 ALTER TABLE `tag`
   ADD PRIMARY KEY (`id`);
 
 
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
 
--- Thêm các ràng buộc ngoại
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+
+ALTER TABLE `food`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+
+ALTER TABLE `tables`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
+
 ALTER TABLE `order`
   ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 
 ALTER TABLE `order_detail`
   ADD CONSTRAINT `order_detail_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `order_detail_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
+
 ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`id`) REFERENCES `category` (`id`);
+COMMIT;
+

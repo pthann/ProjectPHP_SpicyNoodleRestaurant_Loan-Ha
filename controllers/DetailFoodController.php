@@ -11,9 +11,17 @@ class DetailFoodController extends Controller {
         } else {
             $this->processData();
             include_once("views/pages/user/DetailFoodPage.php");
+                $this->addProductCart();
         }
        
     }
+
+    public function addProductCart(){
+        if (isset($_POST["add"])) {
+            $this->addToCartEvent();
+        }
+    }
+    
     public function processData() {
         $userModel = new UsersModel();
         $foodModel = new DetailFoodModel(); 
@@ -22,6 +30,27 @@ class DetailFoodController extends Controller {
         $specificFood = array_filter($foods, function ($food) use ($foodId) {
             return $food['id'] == $foodId;
         });
-        $this->setData("foods", $specificFood);
-        }}
+        $this->setData("food", $specificFood);
+    }
+
+    public function addToCartEvent() {
+        header("Location: /cart");
+        $cartModel = new DetailFoodModel() ;
+        $cartModel->addToCart($_SESSION["userLogin"], $_GET["id"] );
+    }
+
+    }        
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+

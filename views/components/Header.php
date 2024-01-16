@@ -55,6 +55,7 @@
   </style>
 </head>
 
+
 <body>
   <div class="containerHeader container-fluid">
     <div><img class="logoHeader" src="/views/images/logos/logo.png" alt="Logo"></div>
@@ -74,7 +75,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="profileDropdown">
             <li><a class="dropdown-item profile" onclick="viewProfile()" href="#">View Profile</a></li>
-            <li><a class="dropdown-item logout" onclick="logout()" href="#">Logout</a></li>
+            <li><a class="dropdown-item logout"  href="/logout">Logout</a></li>
           </ul>
         </div>
       </nav>
@@ -83,35 +84,30 @@
 
   <script>
     function home() {
-      window.location = "http://localhost:3000/home";
+      window.location = "http://localhost:3009/home";
     }
 
     function menu() {
-      window.location = "http://localhost:3000/user/MenuPage.php";
+      window.location = "http://localhost:3009/menu";
     }
 
     function searchs() {
-      window.location = "http://localhost:3000/user/SearchPage.php";
+      window.location = "http://localhost:3009/search";
     }
 
     function viewProfile() {
-      window.location = "http://localhost:3000/user/ViewProfilePage.php";
+      window.location = "http://localhost:3009/user/ViewProfilePage.php";
     }
-
-    function logout() {
-      window.location = "http://localhost:3000/user/LogoutPage.php";
-    }
-
     function cart() {
-      window.location = "http://localhost:3000/user/CartPage.php";
+      window.location = "http://localhost:3009/cart";
     }
 
     function order() {
-      window.location = "http://localhost:3000/user/OrderPage.php";
+      window.location = "http://localhost:3009/user/OrderPage.php";
     }
 
     function tables() {
-      window.location = "http://localhost:3000/user/TablesPage.php";
+      window.location = "http://localhost:3009/table";
     }
   </script>
 
@@ -119,3 +115,7 @@
 </body>
 
 </html>
+
+
+
+

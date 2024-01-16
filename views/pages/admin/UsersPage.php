@@ -127,10 +127,13 @@
                       <option value="USER">Customer</option> 
                     </select>
                   </div>
+
+                  
                   <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" name="block" id="userBlockUpdate">
+                    <input type="checkbox" class="form-check-input" name="block" id="userBlockUpdate" <?= $value["block"] ? 'checked' : '' ?>>
                     <label class="form-check-label" for="userBlockUpdate">Block User</label>
-                  </div>
+                </div>
+
                   <input type="hidden" name="id" id="userIdUpdate">
                 </div>
                 <div class="modal-footer">

@@ -24,7 +24,7 @@ include_once('views/components/Header.php');
    
     <div class="foodHomepage">
             <div class="row">
-                <?php foreach ($this->getData("foods") as $key => $value) : ?>
+                <?php foreach ($this->getData("food") as $key => $value) : ?>
                 <a href="/detail?id=<?= $value['id'] ?>" class="col-md-2 imageFoodOfHome">
                         <div>
                             <img src="<?= $value['image_link'] ?>" alt="<?= $value['name'] ?>" class="img-fluid">

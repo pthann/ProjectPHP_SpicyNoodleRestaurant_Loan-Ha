@@ -1,0 +1,34 @@
+body {
+    background-color: white; 
+}
+
+.tables {
+    margin-top: 20px;
+    margin-left:150px;
+}
+.tableItem {
+    margin: 0 15px 15px 0;
+    background-color:black; 
+    padding: 10px;
+    border-radius: 8px;
+}
+.radioTables{
+    display: none;
+}
+.tableItem:hover{
+    background-color:red;
+}
+.tableItem a {
+    text-decoration: none;
+    text-align: center;
+}
+
+.tableName {
+    color: white;
+    font-size: 19px;
+}
+
+.titleTable {
+    text-align: center;
+    margin-top:100px;
+}

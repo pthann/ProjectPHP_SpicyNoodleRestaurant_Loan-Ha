@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Register</title>
 </head>
@@ -26,7 +27,7 @@
 <?php 
     include_once('views/components/HeaderAccountLinks.php');
 ?>
-    <form class="card w-50 m-auto p-3 mt-5" action="" method="POST">
+    <form class="card w-50 m-auto p-3 mt-5 container-fluid" action="" method="POST">
         <h2 class="text-center">Register</h2>
         <div class="row mt-3">
             <div class="col-3">
@@ -81,7 +82,7 @@
             </div>
         </div>
         <div class="mt-3 text-center">
-           <p>You have an account? <button class="login"><a href="/login">Login now</a></button></p>
+           <p>You have an account? <button class="login btn btn-danger"><a href="/login">Login now</a></button></p>
         </div>
         <button type="submit" class="btn btn-primary mt-3" name="submitRegister">Register</button>
         <span class="text-danger mt-3"><?= $this->getData("errorMessage")?></span>

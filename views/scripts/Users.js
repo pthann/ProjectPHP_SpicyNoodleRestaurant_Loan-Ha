@@ -7,6 +7,7 @@ function showValueUpdateUser(id, email, name,avatar,role, block) {
     document.getElementById("userRoleUpdate").value = role;
     document.getElementById("userAvatarUpdate").value = avatar;
     document.getElementById("userBlockUpdate").checked = block === '0'; 
+    document.getElementById('userBlockUpdate').checked = (block === '1');
     document.getElementById("userIdUpdate").value = id;
 }
 

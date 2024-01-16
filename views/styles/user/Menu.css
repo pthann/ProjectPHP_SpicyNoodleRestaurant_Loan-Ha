@@ -1,0 +1,27 @@
+
+.titleTable{
+    text-align: center;
+    margin-top:40px;
+    margin-bottom: 40px;
+}
+.productMenu img {
+    width: 180px;
+    height: 130px;
+    margin-bottom: 5px;
+    object-fit: cover;
+  }
+  
+.productMenu {
+    display: inline-block;
+    width: 20%; 
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+.productMenu:hover{
+  color:red;
+}
+
+

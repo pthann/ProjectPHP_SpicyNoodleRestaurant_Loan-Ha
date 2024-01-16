@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Login</title>
 </head>
@@ -23,7 +24,7 @@
 <?php 
   include_once('views/components/HeaderAccountLinks.php');
 ?>
-    <form class="card w-25 m-auto p-3 mt-5" method="POST">
+    <form class="card w-25 m-auto p-3 mt-5 container-fluid" method="POST">
         <h2 class="text-center">Login</h2>
         <div class="row mt-3">
             <div class="col-3">
@@ -42,7 +43,7 @@
             </div>
         </div>
         <div class="mt-3 text-center">
-           <p>You don't have an account? <button class="register"><a href="/register">Register now</a></button></p>
+           <p>You don't have an account? <button class="register btn btn-danger"><a href="/register">Register now</a></button></p>
         </div>
 
         <button type="submit" class="btn btn-primary mt-3" name="submitLogin"> Login</button>

@@ -23,4 +23,9 @@ abstract class Controller {
 
         }
     }
+    protected function processData() {
+        $processedData = "The data has been processed"; 
+        $this->setData('processedData', $processedData);
+    }
+
 }

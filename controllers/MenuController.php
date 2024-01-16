@@ -1,8 +1,8 @@
 <?php
 require_once("models/UsersModel.php");
-require_once("models/ProductModel.php");
+require_once("models/MenuModel.php");
 
-class HomepageController extends Controller {
+class MenuController extends Controller {
 
     public function getView() {
         session_start();
@@ -10,7 +10,7 @@ class HomepageController extends Controller {
             $this->redirect("/admin/login");
         } else {
             $this->processData();
-            include_once("views/pages/user/HomePage.php");
+            include_once("views/pages/user/MenuPage.php");
         }
        
     }
@@ -18,7 +18,7 @@ class HomepageController extends Controller {
     public function processData() {
         $userModel = new UsersModel();
         $foodModel = new ProductModel();
-        $this->setData("title", "Food");
+        $this->setData("title", "Menu");
         $this->setData("avatar", $userModel->getAvatarFromId($_SESSION["userLogin"]));
         $this->setData("food", $foodModel->readAll());
     }

@@ -41,7 +41,7 @@ class ValidationHelper {
     
         if (!preg_match('/[!@#$%^&*(),.?":{}|<>]/', $password)) {
             return false;
-        } http://localhost:3000/login
+        } 
     
         return true;
     }

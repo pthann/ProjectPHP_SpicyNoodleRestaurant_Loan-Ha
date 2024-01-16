@@ -130,7 +130,7 @@
                 </div>
                 <div class="modal-body">
                   <div class="mb-3">
-                    <label for="foodNameUpdate" class="form-label">Food Product:</label>
+                    <label for="foodNameUpdate" class="form-label">Name Product:</label>
                     <input type="text" class="form-control" name="name" id="foodNameUpdate" required>
                   </div>
                   <div class="mb-3">

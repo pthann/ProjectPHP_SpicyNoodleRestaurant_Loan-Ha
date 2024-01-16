@@ -77,4 +77,13 @@ class CrudHelper {
             echo "Error: " . $e->getMessage();
         }
     }
+    public function getPDO() {
+        return $this->db;
+    }
+    
+    public function query($query) {
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

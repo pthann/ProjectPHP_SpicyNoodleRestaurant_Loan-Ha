@@ -100,5 +100,13 @@ class UsersModel extends Model {
         $stmt->execute();  
         return $stmt->fetch(PDO::FETCH_ASSOC)["role"];
     }
+
+public function updateUserBlockStatus($id, $blockStatus) {
+    $connection = new Connection();
+    $stmt = $connection->getConnection()->prepare("UPDATE $this->table SET block = :blockStatus WHERE id = :id");
+    $stmt->bindParam(':blockStatus', $blockStatus, PDO::PARAM_INT);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    return $stmt->execute();
+}
 }
 ?>
