@@ -14,7 +14,7 @@
                 <img src="<?=$_SESSION["userAvatar"]?>" class="img-circle elevation-2" alt="Avatar">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Admin</a>
+                <a href="#" class="d-block"><?= $_SESSION["userName"] ?></a>
             </div>
         </div>
 
@@ -33,7 +33,7 @@
                 <?php if ($_SESSION["userRole"] == "ADMIN" || $_SESSION["userRole"] == "MANAGER") {  ?>
                     <li class="nav-item">
                         <a href="#" class="nav-link active ">
-                            <i class="nav-icon fa-brands fa-dropbox"></i>                            
+                            <i class="nav-icon fa-brands fa-dropbox"></i>
                             <p>
                                 Management
                                 <i class="fas fa-angle-left right"></i>
@@ -78,14 +78,14 @@
                 <li class="nav-header">PROFILE</li>
                 <li class="nav-item">
                     <a href="pages/calendar.html" class="nav-link">
-                        <i class="nav-icon fa-solid fa-user"></i>                        
+                        <i class="nav-icon fa-solid fa-user"></i>
                         <p>Profile</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/admin/logout" class="nav-link">
-                    <i class="nav-icon fa-solid fa-right-from-bracket"></i>
-                     <p>Logout</p>
+                        <i class="nav-icon fa-solid fa-right-from-bracket"></i>
+                        <p>Logout</p>
                     </a>
                 </li>
 

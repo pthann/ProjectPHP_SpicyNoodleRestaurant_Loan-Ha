@@ -1,10 +1,11 @@
 <?php 
 class ValidationHelper {
-    function validatePhoneNumber($telephone) {
-        
-        $telephone = filter_var($telephone, FILTER_SANITIZE_NUMBER_INT);
-        
-        if (strlen($telephone) === 11) {
+    function validatePhoneNumber($phoneNumber) {
+        // Remove any non-numeric characters
+        $phoneNumber = filter_var($phoneNumber, FILTER_SANITIZE_NUMBER_INT);
+        // Check if the number is exactly 11 digits
+        if (strlen($phoneNumber) === 11) {
+            // Additional validation if needed
             return true;
         } else {
             return false;
