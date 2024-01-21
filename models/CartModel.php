@@ -17,10 +17,6 @@ class CartModel extends Model {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    private function getFoodImageLink($foodId) {
-        $foodDetails = $this->crudHelper->readOne('food', $foodId);
-        return isset($foodDetails['image_link']) ? $foodDetails['image_link'] : '';
-    }
 
     public function increaseQuantity($itemId) {
         session_start();

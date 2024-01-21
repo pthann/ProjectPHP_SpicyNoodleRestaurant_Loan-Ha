@@ -40,7 +40,6 @@ class UsersController extends Controller {
     public function editUserEvent() {
         $usersModel = new UsersModel(); 
     
-        
         $id = isset($_POST["id"]) ? $_POST["id"] : '';
         $email = isset($_POST["email"]) ? $_POST["email"] : '';
         $name = isset($_POST["name"]) ? $_POST["name"] : '';
@@ -87,4 +86,3 @@ class UsersController extends Controller {
 
    
 }
-

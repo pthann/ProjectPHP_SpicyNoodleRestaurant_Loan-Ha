@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include_once("views/components/AdminHead.php"); ?>
-
+<?php include_once("views/components/AdminHead.php");?>
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
     <?php include_once("views/components/AdminNavBar.php") ?>
     <?php include_once("views/components/AdminAside.php") ?>
     <div class="content-wrapper">
-      <?php include_once("views/components/AdminHeader.php") ?>
+      <?php include_once("views/components/AdminHeader.php")?>
       <section class="content">
         <div class="container-fluid">
           <div class="row">

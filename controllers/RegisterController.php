@@ -23,8 +23,6 @@ class RegisterController extends Controller {
             $telephone = $_POST["telephone"]; 
             $role = $_POST["role"]; 
             
-           
-            
             if (empty($name)||empty($email)||empty($password)||empty($avatar)||empty($telephone)||empty($role)|| trim($name) == "" ||trim($email)==""||trim($password)==""||trim($avatar)==""||trim($telephone)==""||trim($role)=="") {
                 $this->setData("errorMessage", "Please enter complete information for the fields.");
             } else {

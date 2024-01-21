@@ -39,13 +39,15 @@ class CartController extends Controller {
         $cartModel->decreaseQuantity($itemId);
         $this->redirect('/cart');
     }
-
     public function removeItemEvent() {
         $itemId = $_POST['itemId'];
         $cartModel = new CartModel();
         $cartModel->removeItem($itemId);
+        error_log("Item removed successfully with itemId: $itemId");
+    
         $this->redirect('/cart');
     }
+    
     
     
 }

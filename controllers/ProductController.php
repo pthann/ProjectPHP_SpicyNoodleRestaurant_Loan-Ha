@@ -49,7 +49,6 @@ class ProductController extends Controller {
         $price = $_POST["price"]; 
         $description = $_POST["description"]; 
        
-        
         if (empty($name) || trim($name) == "") {
             $this->setData("errorMessage", "Food name is blank.");
         } else {

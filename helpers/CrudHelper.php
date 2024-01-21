@@ -7,8 +7,6 @@ class CrudHelper {
         $this->db = $connection;
     }
     public function readAll($table, $condition = "1", $orderBy = "id ASC", $select = "*", $limit = "", $offset = "") {
-
-    // public function readAll($table, $condition = "1", $orderBy = "id ASC", $select = "*", $limit = "", $offset = "") {
         if ($limit != "" && $offset != "") {
             $stmt = $this->db->prepare("SELECT $select FROM $table WHERE $condition ORDER BY $orderBy LIMIT $limit OFFSET $offset");
         } else if ($limit != "") {

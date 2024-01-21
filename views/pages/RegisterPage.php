@@ -76,6 +76,7 @@
             </div>
             <div class="col">
                 <select class="form-select" name="role" id="role" required>
+                    <option disabled selected>Select the role as user or admin</option>
                     <option value="ADMIN">Admin</option>
                     <option value="USER">Customer</option>
                 </select>

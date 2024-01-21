@@ -2,27 +2,15 @@
 abstract class Controller {
     private $data = [];
 
-    public function __construct() {
-        $this->getView();
-    }
-
     public function renderView($content) {
-        $this->processEvent();
-        $this->processData();
         include_once("views/pages/" . $content . ".php");
     }
 
-    public function getView() {
-    }
-
-    public function processData() {
-    }
-
-    public function processEvent() {
-    }
-
     public function redirect(string $url) {
-        header("Location: $url");
+        header("Location: $url");   
+    }
+    
+    public function processEventOnView() {
     }
 
     public function setData($key, $value) {
@@ -30,8 +18,10 @@ abstract class Controller {
     }
 
     public function getData($key) {
+
         if (array_key_exists($key, $this->data)) {
-            return $this->data[$key];
+                    return $this->data[$key];
+
         }
     }
     protected function processData() {
