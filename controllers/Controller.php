@@ -34,4 +34,9 @@ abstract class Controller {
             return $this->data[$key];
         }
     }
+    protected function processData() {
+        $processedData = "The data has been processed"; 
+        $this->setData('processedData', $processedData);
+    }
+
 }

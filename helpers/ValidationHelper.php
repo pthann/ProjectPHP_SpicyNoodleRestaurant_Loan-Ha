@@ -1,4 +1,4 @@
-<?php
+<?php 
 class ValidationHelper {
     function validatePhoneNumber($phoneNumber) {
         // Remove any non-numeric characters
@@ -13,10 +13,8 @@ class ValidationHelper {
     }
 
     function validateEmail($email) {
-        // Remove leading and trailing whitespaces
         $email = trim($email);
-
-        // Validate email using filter_var
+    
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return true;
         } else {
@@ -25,34 +23,29 @@ class ValidationHelper {
     }
 
     function validatePassword($password) {
-        // Check if password length is at least 8 characters
+        
         if (strlen($password) < 8) {
             return false;
         }
-
-        // Check if password contains at least one uppercase letter
+    
         if (!preg_match('/[A-Z]/', $password)) {
             return false;
         }
 
-        // Check if password contains at least one lowercase letter
         if (!preg_match('/[a-z]/', $password)) {
             return false;
         }
-
-        // Check if password contains at least one digit
-
+     
         if (!preg_match('/[0-9]/', $password)) {
             return false;
         }
-
-        // Check if password contains at least one special character
+    
         if (!preg_match('/[!@#$%^&*(),.?":{}|<>]/', $password)) {
             return false;
-        }
-        http: //localhost:3000/login
-
-        // If all checks pass, the password is valid
+        } 
+    
         return true;
     }
+ 
 }
+?>

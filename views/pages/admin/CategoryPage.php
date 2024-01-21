@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include_once("views/components/AdminHead.php") ?>
+<<<<<<< .merge_file_ePkOXj
+<link rel="stylesheet" href="/views/styles/admin/Category.css">
+=======
 <link rel="stylesheet" href="/views/styles/Category.css">
 
+>>>>>>> .merge_file_wrMPkG
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
     <?php include_once("views/components/AdminNavBar.php") ?>
@@ -22,12 +26,12 @@
           echo "<h3 class=\"mt-3 mb-3 text-bold\">Result for " . $_GET["search"] . ":</h3>";
         }
         ?>
-        <!--Content -->
+       
         <div class="table-container mt-2">
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
+                <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Action</th>
               </tr>
@@ -47,13 +51,23 @@
             </tbody>
 
           </table>
+<<<<<<< .merge_file_ePkOXj
+          </div>
+      
+=======
         </div>
         <!-- Message -->
+>>>>>>> .merge_file_wrMPkG
         <?php
         if (isset($_SESSION["errorFlashMessage"])) {
         ?>
+<<<<<<< .merge_file_ePkOXj
+       
+          <div class="alert alert-danger alert-dismissible fade show" role="alert"><?=$this->getData("errorMessage") ?></div>
+=======
           <!-- Alert -->
           <div class="alert alert-danger alert-dismissible fade show" role="alert"><?= $_SESSION["errorFlashMessage"] ?></div>
+>>>>>>> .merge_file_wrMPkG
         <?php
           unset($_SESSION["errorFlashMessage"]);
         }
@@ -61,13 +75,16 @@
         <?php
         if (isset($_SESSION["successFlashMessage"])) {
         ?>
+<<<<<<< .merge_file_ePkOXj
+          <div class="alert alert-success alert-dismissible fade show" role="alert"><?=$this->getData("successMessage") ?></div>
+=======
           <!-- Alert -->
           <div class="alert alert-success alert-dismissible fade show" role="alert"><?= $_SESSION["successFlashMessage"] ?></div>
+>>>>>>> .merge_file_wrMPkG
         <?php
           unset($_SESSION["successFlashMessage"]);
         }
         ?>
-        <!-- Add Modal -->
         <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
           <form action="" method="POST">
             <div class="modal-dialog">
@@ -88,7 +105,8 @@
             </div>
           </form>
         </div>
-        <!--  Delete Modal -->
+        
+        
         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
           <form action="" method="post">
             <div class="modal-dialog">
@@ -109,7 +127,8 @@
             </div>
           </form>
         </div>
-        <!-- Update Modal -->
+        
+
         <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
           <form action="" method="post">
             <div class="modal-dialog">

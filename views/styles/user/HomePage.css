@@ -1,0 +1,46 @@
+.groupImgHomepage {
+    position: relative;
+    margin-top: 60px;
+}
+.welcome {
+    text-align: center;
+    color: black;
+    font-weight: 400px;
+    width:100%;
+    font-size: 70px; 
+    padding: 20px;
+    line-height: 1.2;
+   
+}
+.imageOfHomePage {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+.groupImageHomePage {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    
+  }
+
+
+  .imageFoodOfHome img {
+    width: 180px;
+    height: 130px;
+    margin-bottom: 5px;
+    object-fit: cover;
+  }
+  
+.imageFoodOfHome {
+    display: inline-block;
+    width: 20%; 
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+.imageFoodOfHome:hover{
+  color:red;
+}
