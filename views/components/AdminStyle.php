@@ -8,3 +8,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css">
   <!-- Icon -->
   <link rel="shortcut icon" href="/views/images/logos/logo.png" type="image/png">
+   <!--dataTables -->
+ <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+ <!--select2 -->
+ <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+ <script>
+let table = new DataTable('#myTable');
+ </script>
+
+ <script>
+$(document).ready(function() {
+    $('#foodName').select2();
+});
+ </script>d

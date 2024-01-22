@@ -1,3 +1,12 @@
+<?php
+function generateRandomCode() {
+    $prefix = 'MDH';
+    $randomPart = substr(uniqid(), 7, 6);
+
+    return $prefix . $randomPart;
+}
+$randomCode = generateRandomCode();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,7 +75,7 @@
         <a class="aOfHeader" onclick="searchs()" href="#">Search</a>
         <a class="aOfHeader" onclick="cart()" href="#">Cart</a>
         <a class="aOfHeader" onclick="tables()" href="#">Table</a>
-        <a class="aOfHeader" onclick="order()" href="#">Order</a>
+        <a class="aOfHeader" onclick="payment()" href="#">Payment</a>
         
         <div class="dropdown">
           <a class="aOfHeader dropdown-toggle" href="#" role="button" id="profileDropdown" data-bs-toggle="dropdown"
@@ -108,6 +117,10 @@
 
     function tables() {
       window.location = "http://localhost:3009/table";
+    }
+
+    function payment() {
+      window.location = "http://localhost:3009/payment";
     }
   </script>
 

@@ -1,6 +1,7 @@
 <?php
 
 require_once("models/Model.php");
+require_once("models/UsersModel.php");
 
 class LoginModel extends Model {
     public function __construct() {
@@ -21,11 +22,4 @@ class LoginModel extends Model {
         return $user;
     }
     
-    public function isExistEmail($email) {
-        $connection = new Connection();
-        $stmt = $connection->getConnection()->prepare("SELECT id FROM $this->table WHERE email = :email");
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
-        return $stmt->rowCount() != 0;
-    }
 }
